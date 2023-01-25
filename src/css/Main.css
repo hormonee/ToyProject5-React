@@ -99,12 +99,13 @@ header .top-banner>a>button {
 
 .header_bottom_outer .header_bottom_wrap {
   border-bottom: 2px solid red;
+  height: 50px;
+  box-sizing: border-box;
 }
 
 .header_bottom {
   overflow: hidden;
   width: 980px;
-  padding: 4px 0px;
 }
 
 .header_bottom>.menu_bar {
@@ -114,11 +115,12 @@ header .top-banner>a>button {
 .header_bottom>.search_bar {
   float: right;
   margin-right: 16px;
+  padding-top: 4px;
 }
 
 .header_bottom>.menu_bar>ul>li {
   display: inline-block;
-  padding: 5px 0px;
+  padding-top: 3px;
 }
 
 .header_bottom>.menu_bar>ul>li>span {
@@ -136,7 +138,7 @@ header .top-banner>a>button {
 }
 .menuTable {
   width: 980px;
-  display: none;
+  display: flex;
   justify-content: center;
 }
 .menuTable.active {
@@ -155,7 +157,10 @@ header .top-banner>a>button {
 }
 .snb > ul > li {
   height: 24px;
+}
+.snb > ul > li > span:hover {
   cursor: pointer;
+  border-bottom: 1px solid #777;
 }
 /* 메뉴 마우스 오버 아웃 끝 */
 

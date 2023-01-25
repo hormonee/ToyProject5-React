@@ -1,87 +1,59 @@
+import { Fragment, useRef, useState } from 'react';
 import '../css/Main.css';
 
 
 const Section = () => {
-    //무비차트 & 상영예정작 버튼 토클
-  // var chartSort = document.querySelector(".section_abled .movie_sort_movieChart");
-  var section1 = document.querySelector(".section1");
-  var section2 = document.querySelector(".section2");
-  // chartSort.addEventListener('click', toggleChart);
 
-  function toggleChart(e) {
-    e.preventDefault();
+    const [isActive, setActive] = useState(true);
 
-    if (e.target.tagName != "SPAN") return;
-
-    if (e.target.innerHTML == "무비차트") {
-      section2.classList.remove("section_abled");
-      section1.classList.remove("section_disabled");
-      section1.classList.add("section_abled");
-      section2.classList.add("section_disabled");
-
-      var movieChartInner1 = document.querySelector(".section_abled .movie_sort_movieChart_inner1 > span");
-      var movieChartInner2 = document.querySelector(".section_abled .movie_sort_movieChart_inner2 > span");
-
-      movieChartInner1.style.color = "black";
-      movieChartInner2.style.color = "#777";
-
-    } else if (e.target.innerHTML == "상영예정작") {
-      section1.classList.remove("section_abled");
-      section2.classList.remove("section_disabled");
-      section2.classList.add("section_abled");
-      section1.classList.add("section_disabled");
-
-      var movieChartInner1 = document.querySelector(".section_abled .movie_sort_movieChart_inner1 > span");
-      var movieChartInner2 = document.querySelector(".section_abled .movie_sort_movieChart_inner2 > span");
-
-      movieChartInner2.style.color = "black";
-      movieChartInner1.style.color = "#777";
+    //movie_list slide go right
+    const slideGoRight = () => {
+        setActive(!isActive);
     }
-  }
 
-   
+    //movie_list slide go left
+    const slideGoLeft = () => {
+        setActive(!isActive);
+    }
+
+    //무비차트 & 상영예정작 버튼 토클
+    const [isActive2, setActive2] = useState(true);
+    const movieChart = useRef(null);
+    const movieReserved = useRef(null);
+
+    function toggleChart(e) {
+        e.preventDefault();
+
+        if (e.target.tagName != "SPAN") return;
+
+        if (e.target.innerHTML == "무비차트" && (isActive2 == false)) {
+            setActive2(!isActive2);
+            movieChart.current.style.color = "black";
+            movieChart.current.style.fontWeight = "700";
+            movieReserved.current.style.color = "#777";
+            movieReserved.current.style.fontWeight = "500";
+
+        } else if (e.target.innerHTML == "상영예정작" && (isActive2 == true)) {
+            setActive2(!isActive2);
+            movieReserved.current.style.color = "black";
+            movieReserved.current.style.fontWeight = "700";
+            movieChart.current.style.color = "#777";
+            movieChart.current.style.fontWeight = "500";
+        }
+    }
 
     return (
-        <>
-
-            <div className="video">
-                <div className="video_wrap">
-                    <div className="video_inner">
-                        <video id="videoPlayer" src="TP4_img/ghostPreview.mp4" >
-                        </video>
-                        <div className="video_controll_wrap">
-                            <div className="video_info">
-                                <strong>유령</strong>
-                                <br /><br />
-                                <span>항일조직 스파이 '유령'</span>
-                                <br />
-                                <span>작전을 성공시켜야만 한다.</span>
-                                <br /><br />
-                            </div>
-                            <div className="video_controller">
-                                <a href="#" className="detailViewBtn"><span>상세보기</span></a>
-                                < img src="TP4_img/arrowRight.png" />
-                                <a href="#" className="stopPlayBtn">
-                                    <img src="TP4_img/videoPauseIcon.png" className="videoPlayControll" />
-                                </a>
-                                <a href="#" className="soundControllBtn">
-                                    <img src="TP4_img/videoSoundOffIcon.png" className="videoSoundControll" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <Fragment>
             {/*  <!-- movie slide --> */}
-            <section className="section1 section_abled">
+            <section className={isActive2 ? "section_abled" : "section_disabled"}>
                 <div className="movie_contents">
                     <div className="movie_sort">
                         <div className="movie_sort_movieChart">
-                            <a href="#" className="movie_sort_movieChart_inner movie_sort_movieChart_inner1"><span
-                                                onClick={toggleChart} >무비차트</span></a>
+                            <a href="#" className="movie_sort_movieChart_inner movie_sort_movieChart_inner1">
+                                <span onClick={toggleChart} ref={movieChart}>무비차트</span></a>
                             <span></span>
-                            <a href="#" className="movie_sort_movieChart_inner movie_sort_movieChart_inner2"><span
-                                                onClick={toggleChart}>상영예정작</span></a>
+                            <a href="#" className="movie_sort_movieChart_inner movie_sort_movieChart_inner2">
+                                <span onClick={toggleChart} ref={movieReserved}>상영예정작</span></a>
                         </div>
                         <div className="movie_sort_all">
                             <a href="#" className="movie_sort_all_inner1"><span>전체보기</span></a>
@@ -89,7 +61,7 @@ const Section = () => {
                         </div>
                     </div>
                     <div className="movie_chart_outer">
-                        <div className="movie_chart">
+                        <div className={isActive ? "movie_chart" : "movie_chart_disabled"}>
                             <ul className="movie_list movie_list1">
                                 <li className="movie_list_inner">
                                     <div className="movie_img_wrap">
@@ -173,7 +145,7 @@ const Section = () => {
                                     </div>
                                 </li>
                                 <li className="movie_list_inner movie_list_inner5">
-                                    <div className="movieChartGoRight"/*  onClick={slideGoRight} */>
+                                    <div className="movieChartGoRight" onClick={slideGoRight}>
                                         <img src="TP4_img/arrowRight.png" style={{ width: '16px', height: '16px' }} />
                                     </div>
                                     <div className="movie_img_wrap">
@@ -198,10 +170,10 @@ const Section = () => {
                             </ul>
                         </div>
                         {/*  <!-- 2번쨰 무비차트 리스트 --> */}
-                        <div className="movie_chart_disabled">
+                        <div className={!isActive ? "movie_chart" : "movie_chart_disabled"}>
                             <ul className="movie_list movie_list2">
                                 <li className="movie_list_inner movie_list_inner6">
-                                    <div className="movieChartGoLeft" /* onClick={slideGoLeft} */>
+                                    <div className="movieChartGoLeft" onClick={slideGoLeft}>
                                         <img src="TP4_img/arrowLeft.png" style={{ width: '16px', height: '16px' }} />
                                     </div>
                                     <div className="movie_img_wrap">
@@ -308,15 +280,15 @@ const Section = () => {
                     </div>
                 </div>
             </section>
-            <section className="section2 section_disabled">
+            <section className={!isActive2 ? "section_abled" : "section_disabled"}>
                 <div className="movie_contents">
                     <div className="movie_sort">
                         <div className="movie_sort_movieChart">
-                            <a href="#" className="movie_sort_movieChart_inner movie_sort_movieChart_inner1"><span
-                            >무비차트</span></a>
+                            <a href="#" className="movie_sort_movieChart_inner movie_sort_movieChart_inner1">
+                                <span onClick={toggleChart} ref={movieChart}>무비차트</span></a>
                             <span></span>
-                            <a href="#" className="movie_sort_movieChart_inner movie_sort_movieChart_inner2"><span
-                            >상영예정작</span></a>
+                            <a href="#" className="movie_sort_movieChart_inner movie_sort_movieChart_inner2">
+                                <span onClick={toggleChart} ref={movieReserved}>상영예정작</span></a>
                         </div>
                         <div className="movie_sort_all">
                             <a href="#" className="movie_sort_all_inner1"><span>전체보기</span></a>
@@ -324,7 +296,7 @@ const Section = () => {
                         </div>
                     </div>
                     <div className="movie_chart_outer">
-                        <div className="movie_chart">
+                        <div className={isActive ? "movie_chart" : "movie_chart_disabled"}>
                             <ul className="movie_res_list movie_list1">
                                 <li className="movie_list_inner">
                                     <div className="movie_img_wrap">
@@ -408,7 +380,7 @@ const Section = () => {
                                     </div>
                                 </li>
                                 <li className="movie_list_inner movie_list_inner5">
-                                    <div className="movieChartGoRight">
+                                    <div className="movieChartGoRight" onClick={slideGoRight}>
                                         <img src="TP4_img/arrowRight.png" style={{ width: '16px', height: '16px' }} />
                                     </div>
                                     <div className="movie_img_wrap">
@@ -433,10 +405,10 @@ const Section = () => {
                             </ul>
                         </div>
                         {/* 2번쨰 상영예정 무비차트 리스트  */}
-                        <div className="movie_chart_disabled">
+                        <div className={!isActive ? "movie_chart" : "movie_chart_disabled"}>
                             <ul className="movie_list movie_list2">
                                 <li className="movie_list_inner movie_list_inner6">
-                                    <div className="movieChartGoLeft"  >
+                                    <div className="movieChartGoLeft" onClick={slideGoLeft}>
                                         <img src="TP4_img/arrowLeft.png" style={{ width: '16px', height: '16px' }} />
                                     </div>
                                     <div className="movie_img_wrap">
@@ -543,8 +515,7 @@ const Section = () => {
                     </div>
                 </div>
             </section>
-        </>
+        </Fragment>
     )
 }
-
 export default Section;
