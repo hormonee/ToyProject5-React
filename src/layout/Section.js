@@ -1,11 +1,45 @@
 import '../css/Main.css';
 
 
-
 const Section = () => {
+    //무비차트 & 상영예정작 버튼 토클
+  // var chartSort = document.querySelector(".section_abled .movie_sort_movieChart");
+  var section1 = document.querySelector(".section1");
+  var section2 = document.querySelector(".section2");
+  // chartSort.addEventListener('click', toggleChart);
 
- 
+  function toggleChart(e) {
+    e.preventDefault();
 
+    if (e.target.tagName != "SPAN") return;
+
+    if (e.target.innerHTML == "무비차트") {
+      section2.classList.remove("section_abled");
+      section1.classList.remove("section_disabled");
+      section1.classList.add("section_abled");
+      section2.classList.add("section_disabled");
+
+      var movieChartInner1 = document.querySelector(".section_abled .movie_sort_movieChart_inner1 > span");
+      var movieChartInner2 = document.querySelector(".section_abled .movie_sort_movieChart_inner2 > span");
+
+      movieChartInner1.style.color = "black";
+      movieChartInner2.style.color = "#777";
+
+    } else if (e.target.innerHTML == "상영예정작") {
+      section1.classList.remove("section_abled");
+      section2.classList.remove("section_disabled");
+      section2.classList.add("section_abled");
+      section1.classList.add("section_disabled");
+
+      var movieChartInner1 = document.querySelector(".section_abled .movie_sort_movieChart_inner1 > span");
+      var movieChartInner2 = document.querySelector(".section_abled .movie_sort_movieChart_inner2 > span");
+
+      movieChartInner2.style.color = "black";
+      movieChartInner1.style.color = "#777";
+    }
+  }
+
+   
 
     return (
         <>
@@ -44,10 +78,10 @@ const Section = () => {
                     <div className="movie_sort">
                         <div className="movie_sort_movieChart">
                             <a href="#" className="movie_sort_movieChart_inner movie_sort_movieChart_inner1"><span
-                                               /*  onClick={toggleChart} */ >무비차트</span></a>
+                                                onClick={toggleChart} >무비차트</span></a>
                             <span></span>
                             <a href="#" className="movie_sort_movieChart_inner movie_sort_movieChart_inner2"><span
-                                               /*  onClick={toggleChart} */>상영예정작</span></a>
+                                                onClick={toggleChart}>상영예정작</span></a>
                         </div>
                         <div className="movie_sort_all">
                             <a href="#" className="movie_sort_all_inner1"><span>전체보기</span></a>

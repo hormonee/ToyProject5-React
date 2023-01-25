@@ -1,8 +1,7 @@
+ import React, { Fragment } from "react";
 
-
-
-
-  //쿠키 이름, 쿠키 값 조회
+ const SectionFunction = () => {
+ //쿠키 이름, 쿠키 값 조회
   var cookieArr = document.cookie.split("; ");
 
   var cnt = 0;
@@ -17,7 +16,7 @@
 
   //remove top banner
   var topBannerDelBtn = document.getElementById("btn_ad_close");
-  topBannerDelBtn.onclick = function () {
+  topBannerDelBtn.onClick = function () {
     document.querySelector("header .top-banner").style.display = "none";
   }
 
@@ -48,7 +47,7 @@
   var stopPlayBtn = document.querySelector(".video_controller .stopPlayBtn");
   var stopPlayBtnImg = document.querySelector(".video_controller .stopPlayBtn > img");
 
-  stopPlayBtn.onclick = function (e) {
+  stopPlayBtn.onClick = function (e) {
     e.preventDefault();
 
     if (!videoPlayer.paused) {
@@ -230,3 +229,11 @@
   }
   document.addEventListener('scroll', menuBarFixed);
 
+  retrun (
+    <Fragment>
+
+    </Fragment>
+  )
+ }
+ export default SectionFunction;
+ 
