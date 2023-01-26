@@ -1,4 +1,5 @@
 import { Fragment, useRef, useState } from 'react';
+import { Link, Outlet } from 'react-router-dom';
 import '../css/Main.css';
 
 
@@ -22,7 +23,36 @@ const Header = () => {
     const delDropDown = () => {
         menuTable.current.style.display = "none";
     }
+    //마우스 눌렀을 때 강조
+    const focusOn = (e) => {
+        e.preventDefault();
 
+        if (e.target.tagName != "A") return;
+
+        e.target.style.border = "3px solid rgb(220, 200, 200)";
+    }
+    const focusOn2 = (e) => {
+        e.preventDefault();
+
+        if (e.target.tagName != "SPAN") return;
+
+        e.target.style.border = "3px solid rgb(220, 200, 200)";
+    }
+    //마우스 뗐을 때 강조 취소
+    const focusOut = (e) => {
+        e.preventDefault();
+
+        if (e.target.tagName != "A") return;
+
+        e.target.style.border = "none";
+    }
+    const focusOut2 = (e) => {
+        e.preventDefault();
+
+        if (e.target.tagName != "SPAN") return;
+
+        e.target.style.border = "none";
+    }
 
     return (
         <Fragment>
@@ -38,7 +68,7 @@ const Header = () => {
                         <div className="main-header" ref={mainHeader} onMouseOver={delDropDown}>
                             <div className="main-header-contents">
                                 <div className="main-header-inner main-header-inner1">
-                                    <a href="#"><img src="TP4_img/logoRed.png" /></a>
+                                    <a href="#"><Link to="/"><img src="TP4_img/logoRed.png" /></Link></a>
                                     <span>C U L T U R E P L E X</span>
                                 </div>
                                 <ul className="main-header-inner main-header-inner2">
@@ -78,7 +108,7 @@ const Header = () => {
                             <div className="header_bottom_wrap in">
                                 <div className="header_bottom in">
                                     <div className="menu_bar in">
-                                        <ul className="gnb in">
+                                        <ul className="gnb in" onMouseDown={focusOn} onMouseUp={focusOut}>
                                             <li className="in">
                                                 <span className="in"><a href="#" className="in" onMouseOver={dropDownMenu}>영화</a></span>
                                             </li>
@@ -86,7 +116,7 @@ const Header = () => {
                                                 <span className="in"><a href="#" className="in" onMouseOver={dropDownMenu}>극장</a></span>
                                             </li >
                                             <li className="menu_bar_reservation in">
-                                                <span className="in"><a href="#" className="in" onMouseOver={dropDownMenu}>예매</a></span>
+                                                <span className="in"><Link to="/reservation"><a href="#" className="in" onMouseOver={dropDownMenu}>예매</a></Link></span>
                                             </li>
                                             <li className="in">
                                                 <span className="in"><a href="#" className="in" onMouseOver={dropDownMenu}>스토어</a></span>
@@ -116,7 +146,7 @@ const Header = () => {
                             <div className="menuTableOuter">
                                 {/* <div className={isActive ? "menuTable active" : "menuTable"} ref={menuTable}> */}
                                 {/* <div className={menuTableName} ref={menuTable}> */}
-                                <div className="menuTable" ref={menuTable}>
+                                <div className="menuTable" ref={menuTable} onMouseDown={focusOn2} onMouseUp={focusOut2}>
                                     <div className="snb in">
                                         <ul className="in">
                                             <li className="snbLi1 in">영화</li>
@@ -208,6 +238,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+            <Outlet />
         </Fragment>
     )
 }

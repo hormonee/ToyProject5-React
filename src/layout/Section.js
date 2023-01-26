@@ -1,4 +1,5 @@
 import { Fragment, useRef, useState } from 'react';
+import { Outlet } from 'react-router-dom';
 import '../css/Main.css';
 
 
@@ -515,6 +516,7 @@ const Section = () => {
                     </div>
                 </div>
             </section>
+            <Outlet />
         </Fragment>
     )
 }
