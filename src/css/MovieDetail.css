@@ -1,0 +1,429 @@
+.video{
+    display: none;
+}
+
+
+
+
+/* container 시작 */
+a{
+    text-decoration: none;
+}
+
+a:visited{
+    color: white;
+}
+
+.container{
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    z-index: 7;
+}
+
+.container >*{
+    font-family: sans-serif;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    word-break: break-all;
+    box-sizing: border-box;
+}
+
+.contents{
+    clear:both;
+    padding-bottom: 50px;
+
+    position: relative;
+    width: 980px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.movie-detail-top{
+    padding-top: 40px;
+    clear:both;
+    zoom:1;
+    overflow: hidden;
+}
+
+.box-image{
+    margin-right: 30px;
+    width: 185px;
+    height: 260px;
+    float: left;
+}
+
+.box-image .box-image-block{
+    display: block;
+}
+
+.thumb-image{
+    display: block;
+    position: relative;
+}
+
+.thumb-image img{
+    width: 185px;
+    height: 260px;
+    vertical-align: middle;
+    
+}
+
+.poster-detail{
+    display: block;
+    position: absolute;
+    left: 4px;
+    bottom: 3px;
+    width: 24px;
+    height: 24px;
+    background: url(../img/icon.png) 0 0 no-repeat;
+    font: 0/0 a;
+    zoom: 1;
+    z-index:0;
+}
+
+.cgvIcon-age12{
+    overflow: hidden;
+    width: 20px;
+    height: 20px;
+    background: url(../img/age12.png) ;
+    background-size: 20px;
+    border-radius: 2px;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    display: inline-flex;
+    font-size: 0;
+}
+
+/* 이미지 부분 종료 */
+
+/* 오른쪽 컨텐츠 시작 */
+/* title */
+.box-contents{
+    width: 765px;
+    float: left;
+    position: relative;
+}
+
+.title{
+    display: block;
+    color: #333333;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.title strong{
+    color: #1a1919;
+    font-size: 25px;
+    vertical-align: middle;
+}
+
+.round{
+    margin-left: 12px;
+    border: 2px solid #3e82a4;
+    color:#3e82a4 ;
+
+    line-height: 23px;
+    font-weight: 700;
+    font-size: 12px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    font-style: normal;
+}
+
+.round >*{
+    width: 100%;
+    height: 100%;
+    padding: 0 5px 0;
+}
+
+.title p{
+    color: #666666;
+    font-size: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: block;
+    
+}
+
+
+/* score */
+.score{
+    margin-top: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d9d6c8;
+    font-size: 14px;
+}
+
+.score .percent{
+    vertical-align: middle;
+}
+
+.score .percent span{
+    color: #333333;
+    font-size: 12px;
+    font-weight: normal;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    vertical-align: -1px;
+}
+
+.score .egg-gage{
+    margin-top: -8px;
+    margin-left: 2px;
+    padding-left: 6px;
+    background: url(../img/bg_writeinfo.gif) 0 12px no-repeat;
+    vertical-align: -7px;
+   
+}
+
+.egg-gage{
+    display: inline-block;
+    width: auto !important;
+    line-height: 1;
+}
+
+
+.egg-gage .egg-image{
+    background-position: -41px -47px;
+    display: inline-block;
+    margin-right: 2px;
+    width: 18px;
+    width: 16px;
+    height: 26px;
+    background: url(../img/sprite_egg.png) no-repeat -40px -47px;
+}
+
+.egg-gage .percent{
+    display: inline-block;
+    margin-top: 8px;
+    font-family: 'Verdana';
+    font-size: 12px;
+    color: #000000;
+    vertical-align: 4px;
+}
+
+/* spec */
+
+.spec{
+    padding-top: 18px;
+    line-height: 1.6;
+    color: #333333;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+dl{
+    display: block;
+  
+}
+
+.spec dt{
+    float: left;
+}
+
+.spec dd{
+    white-space: normal;
+    text-overflow: clip;
+    overflow: visible;
+    float: left;
+}
+
+.spec .on{
+    float: none;
+}
+
+/* screen type */
+
+.screentype{
+    position: absolute;
+    right: 0;
+    top: 170px;
+}
+
+.screentype .imax{
+    margin-left: 9px;
+    display: inline-block;
+    width: 80px;
+    height: 56px;
+    background: url(../img/screentype.png) no-repeat;
+    font:0/0 a;
+    zoom:1;
+}
+.screentype .fourdx{
+    margin-left: 9px;
+    display: inline-block;
+    width: 80px;
+    height: 56px;
+    background: url(../img/screentype.png) no-repeat 0 -112px;
+    font:0/0 a;
+    zoom:1;
+}
+
+/* like 시작 */
+.like{
+    margin-top: 22px;
+    display: inline-block;
+    margin-right: 3px;
+}
+
+.preegg{
+    width: 104px;
+    height: 33px;
+    border: 1px solid #222222;
+    line-height: 33px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 4px;
+    margin-right: 2px;
+    color: #222222;
+    font-size: 14px;
+    font-weight: 600;
+
+}
+
+.preegg-image{
+    display: inline-block;
+    width: 18px;
+    height: 22px;
+    background: url(../img/sprite_preegg.png) no-repeat -30px 0;
+    background-size: 300px;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+.reservation{
+    display: inline-block;
+    width: 91px;
+    height: 35px;
+    background: url(../img/sprite_btn.png);
+    font: 0/0 a;
+    zoom: 1;
+    vertical-align: top;
+}
+
+
+/* 내용 하단부 시작 */
+.movie-detail-bottom{
+    margin-top: 30px;
+    padding-top: 25px;
+    position: relative;
+}
+
+.movie-detail-bottom .movie-menu-bar:first-child{
+    float: left;
+}
+
+.movie-detail-bottom .movie-menu-bar{
+    position: relative;
+    width: 800px;
+}
+
+.tab-menu{
+    clear: both;
+    text-align: center;
+    
+}
+
+
+
+.tab-menu li{
+    display: inline-block;
+    margin-left: -4px;
+}
+
+
+
+.tab-menu li:first-child span {
+    display: inline-block;
+    width: 100px;
+    background: #fb4357;
+    padding-left: 0;
+    
+}
+
+.tab-menu li:first-child span img {
+    margin-right: 5px;
+}
+.tab-menu li span{
+    display: inline-block;
+    position: relative;
+    height: 39px;
+    padding: 0 15px;
+    background: #fb4357 url(../img/bg_writeinfo.gif) 0 12px no-repeat;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 39px;
+}
+
+.movie-story{
+    
+    color: #333333;
+    line-height: 1.8;
+    clear: both;
+    zoom:1;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* 상세 정보 끝 */
+
+/* 분포 그래프 시작 */
+.chart{
+    padding-top: 40px;
+    clear: both;
+    zoom: 1;
+}
+
+.graph{
+    overflow: hidden;
+    border-bottom: 1px solid #cccccc ;
+}
+
+.graph li {
+    width: 50% !important;
+    overflow: hidden;
+    float: left;
+    height: 250px;
+    padding-bottom: 10px;
+    border-top: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    margin-right: -1px;
+}
+
+.graph li:first-child{
+    border-left: none;
+}
+
+.graph li strong{
+    display: block;
+    height: 58px;
+    border-bottom: 1px solid #cccccc;
+    text-align: center;
+    line-height: 58px;
+    color: #4a4a4a;
+    font-size: 13px;
+}
+
+/* 그래프 끝 */
+
+/* 중간에 광고 */
+
+.middle-movie-ad{
+    padding-top: 30px;
+}
+
+.aside-movie-ad{
+    position: absolute;
+    right: -180px;
+    top:0;
+    
+}
