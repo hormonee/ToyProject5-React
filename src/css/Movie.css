@@ -1,0 +1,699 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+  }
+  
+
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+ol {
+    display: block;
+  /*   list-style-type: decimal; */
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+div {
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+
+label {
+    cursor: default;
+}
+
+select {
+    line-height: 27px;
+    height: 29px;
+    padding: 3px 5px;
+    border: 1px solid #b4b3aa;
+}
+
+select:not(:-internal-list-box) {
+    overflow: visible !important;
+}
+
+option {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+
+h4 {
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+strong {
+    font-weight: 500;
+}
+
+i {
+    font-style: normal;
+}
+
+.contaniner{
+    /* overflow: hidden; */
+    position: relative;
+    width: 100%;
+    z-index: 7;
+   
+}
+
+.cgvwrap .cgv-ad-wrap .sect-head-ad, .head, .im-wrap, .contents, .foot, .sect-smuse, .sect-cinfo {
+    position: relative;
+    width: 980px;
+    margin: 0 auto;
+}
+
+
+
+.contents {
+    clear: both;
+    padding-bottom: 50px;
+}
+
+.tit-heading-wrap {
+    position: relative;
+    height: 60px;
+    padding-top: 30px;
+    border-bottom: 3px solid #241d1e;
+}
+
+.tit-heading-wrap > h3 {
+    display: inline-block;
+    position: relative;
+    height: inherit;
+    margin: 0;
+    background-image: none;
+    color: #222;
+    font-weight: 500;
+    font-size: 36px;
+    text-align: left;
+    vertical-align: middle;
+}
+.tit-heading-wrap > .submenu {
+    position: absolute;
+    top: 48px;
+    right: 0;
+}
+
+.tit-heading-wrap > .submenu > ul {
+    overflow: hidden;
+}
+
+.tit-heading-wrap > .submenu > ul > li:first-child {
+    margin-left: 0;
+}
+
+.tit-heading-wrap > .submenu > ul > li {
+    float: left;
+    margin-left: 15px;
+}
+
+.tit-heading-wrap > .submenu > ul > li.on > a, .tit-heading-wrap > .submenu > ul > li > a:hover, .tit-heading-wrap > .submenu > ul > li > a:focus {
+    background: url(/public/TP4_img/ico_arrow07.png) no-repeat 0 3px;
+    color: #fb4357;
+}
+
+
+.tit-heading-wrap > .submenu > ul > li > a {
+    display: inline-block;
+    padding-left: 13px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+div[class^="sect-"] {
+    clear: both;
+    zoom: 1;
+}
+
+.sect-sorting {
+    position: relative;
+    margin-top: 20px;
+    text-align: right;
+}
+
+.sect-sorting .nowshow {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+input, select, img {
+    vertical-align: middle;
+}
+
+button, input {
+    overflow: visible;
+}
+
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    border: initial;
+}
+
+.hidden {
+    font: 0/0 a;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    visibility: hidden;
+    width: 0;
+    zoom: 1;
+}
+
+.sect-sorting > select {
+    padding: 3px 5px;
+}
+
+.sect-sorting > select option {
+    height: 23px;
+    line-height: 23px;
+}
+.round.gray {
+    border: 2px solid #7b7b7b;
+    color: #7b7b7b;
+}
+
+.round {
+    line-height: 23px;
+    font-weight: 500;
+    font-size: 12px;
+    text-align: center;
+    vertical-align: middle;
+}
+.round, .round > * {
+    display: inline-block;
+    position: relative;
+}
+button, input[type='submit'], input[type='button'] {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+button, input[type='submit'], input[type='reset'] {
+    padding: 0;
+    border: 0 none;
+    background-color: transparent;
+    vertical-align: middle;
+}
+body, input, textarea, select, button, table {
+    font-size: 13px;
+    line-height: 1.2;
+    color: #666;
+    font-family: 'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif;
+    font-weight: 400;
+}
+button, input {
+    overflow: visible;
+}
+
+button {
+    appearance: auto;
+    writing-mode: horizontal-tb !important;
+   
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: buttonface;
+    margin: 0em;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+
+.sect-movie-chart {
+    margin-top: 50px;
+}
+
+.hidden {
+    font: 0/0 a;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    visibility: hidden;
+    width: 0;
+    zoom: 1;
+}
+
+[class|="wrap-movie"][class*="chart"] .sect-movie-chart {
+    margin-top: 30px;
+}
+
+[class|="sect"][class*="chart"] {
+    position: relative;
+    overflow: hidden;
+}
+
+[class|="sect"][class*="chart"] > h4 {
+    margin-top: 30px;
+    color: #222222;
+    font-size: 21px;
+    font-weight: 500;
+}
+
+[class|="sect"][class*="chart"] > h3:first-child + ol, [class|="sect"][class*="chart"] > h4:first-child + ol {
+    padding-top: 0;
+}
+
+[class|="sect"][class*="chart"] > h4 + ol {
+    padding-top: 20px;
+}
+
+[class|="sect"][class*="chart"] > ol {
+/* padding-top: 30px; */
+    margin-left: -64px;
+    zoom: 1;
+}
+[class|="sect"][class*="chart"] > ol > li {
+    float: left;
+    width: 197px;
+    margin-left: 64px;
+    padding-bottom: 30px;
+}
+
+[class|="sect"][class*="chart"] .box-image {
+    position: relative;
+    width: 197px;
+    min-height: 272px;
+    margin-bottom: 10px;
+}
+
+
+[class|="sect"][class*="chart"] > h3:first-child + ol .rank, [class|="sect"][class*="chart"] > h4:first-child + ol .rank, [class|="sect"][class*="chart"] > .spec + ol .rank {
+    background: #fb4357;
+}
+
+[class|="sect"][class*="chart"] .rank {
+    display: block;
+    height: 28px;
+    margin-bottom: 4px;
+    /* border: 6px solid #000000; */
+    background: #333333;
+    color: #ffffff;
+    font-size: 19px;
+    text-align: center;
+    line-height: 28px;
+}
+
+
+
+.wrap-movie-chart .box-contents {
+    height: 93px;
+}
+
+
+.box-contents > a {
+    display: block;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+[class|="sect"][class*="chart"] .score {
+    margin-top: 7px;
+}
+.score {
+    font-size: 11px;
+}
+
+
+[class|="sect"][class*="chart"] .txt-info {
+    margin-top: 3px;
+    height: 13px;
+    color: #666666;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.txt-info {
+    display: block;
+    color: #999999;
+    font-size: 12px;
+}
+
+
+.box-image a {
+    display: block;
+}
+
+.thumb-image {
+    display: block;
+    position: relative;
+}
+
+[class|="sect"][class*="chart"] .thumb-image > img {
+    height: 260px;
+}
+.box-image img {
+    width: 100%;
+}
+
+input, select, img {
+    vertical-align: middle;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+i.cgvIcon.etc.age12 {
+    overflow: hidden;
+    width: 20px;
+    height: 20px;
+    background: rgba(0,0,0,0);
+   /* url(data:image/svg+xml;charset=UTF-8,  $3csvg width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23age12)'%3e%3cpath d='M17.745 20H2.255A2.256 2.256 0 0 1 0 17.745V2.255A2.255 2.255 0 0 1 2.255 0h15.49A2.255 2.255 0 0 1 20 2.255v15.49A2.256 2.256 0 0 1 17.745 20Z' fill='%23E9B62F'/%3e%3cpath d='M4.328 16.891v-9.94H3.227L4.65 3.108h2.761V16.89H4.328ZM16.303 3.109H8.765a.308.308 0 0 0-.307.307v4.165h3.013V5.706h2.13v1.659l-5.258 7.488v2.022h8.228v-2.69h-4.396l3.842-5.394c.12-.17.216-.32.29-.443.068-.12.128-.243.18-.37.05-.127.083-.26.098-.397.02-.173.029-.348.027-.522V3.416a.307.307 0 0 0-.309-.307Z' fill='%23fff'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='age12'%3e%3cpath fill='%23fff' d='M0 0h20v20H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e) center/contain scroll no-repeat; */
+    border-radius: 2px;
+}
+.thumb-image .cgvIcon.etc {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+i.cgvIcon {
+    display: inline-flex;
+    font-size: 0;
+}
+.cgvIcon {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    font-size: 0;
+    line-height: 0;
+}
+
+
+[class|="sect"][class*="chart"] .screentype {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 29px;
+    padding-top: 27px;
+    background: url(/public/TP4_img/bg_poster-gradation.png) 0 0 repeat-x;
+    text-align: center;
+}
+
+.screentype {
+    display: block;
+}
+
+[class|="sect"][class*="chart"] .screentype .imax {
+    background-position: 0 -780px;
+}
+
+[class|="sect"][class*="chart"] .screentype a, [class|="sect"][class*="chart"] .screentype span {
+    width: 59px;
+    height: 20px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.screentype .imax {
+    background-position: 0 0;
+}
+.screentype span, .screentype a {
+    display: inline-block;
+    width: 80px;
+    height: 56px;
+    background: url(/public/TP4_img/sprite_screentype_v3.png);
+    font: 0/0 a;
+    zoom: 1;
+}
+
+.box-image a {
+    display: block;
+}
+
+[class|="sect"][class*="chart"] .screentype .forDX {
+    background-position: 0 -820px;
+}
+
+
+
+[class|="sect"][class*="chart"] .screentype .screenx {
+    background-position: 0 -880px;
+}
+
+[class|="sect"][class*="chart"] .screentype a, [class|="sect"][class*="chart"] .screentype span {
+    width: 59px;
+    height: 20px;
+    text-align: center;
+    vertical-align: top;
+}
+
+
+.wrap-movie-chart .box-contents {
+    height: 93px;
+}
+
+
+[class|="sect"][class*="chart"] > h4 + ol > li:first-child .title, [class|="sect"][class*="chart"] > h3 + ol > li:first-child .title {
+    width: 90%;
+}
+
+[class|="sect"][class*="chart"] .title {
+    font-size: 15px;
+}
+.title {
+    display: block;
+    color: #333333;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+[class|="sect"][class*="chart"] .score {
+    margin-top: 7px;
+}
+
+.score {
+    font-size: 11px;
+}
+
+[class|="sect"][class*="chart"] .score .egg-gage, [class|="sect"][class*="chart"] .score .percent {
+    vertical-align: middle;
+}
+
+[class|="sect"][class*="chart"] .score .percent span {
+    vertical-align: initial;
+}
+
+[class|="sect"][class*="chart"] .score .percent span {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: top;
+}
+
+.score .percent span {
+    color: #333333;
+    font-size: 12px;
+    font-weight: normal;
+    font-family: Verdana, Geneva, sans-serif;
+    vertical-align: -1px;
+}
+
+
+[class|="sect"][class*="chart"] .score .egg-gage {
+    margin-top: -10px;
+    margin-left: 2px;
+    padding-left: 6px;
+    background: url(/public/TP4_img/bg_writeinfo.gif) 0 12px no-repeat;
+}
+
+[class|="sect"][class*="chart"] .score .egg-gage, [class|="sect"][class*="chart"] .score .percent {
+    vertical-align: middle;
+}
+.egg-gage {
+    display: inline-block;
+    width: auto !important;
+    line-height: 1;
+}
+
+.small {
+    width: 150px;
+}
+
+
+egg-gage.small .egg.great {
+    width: 16px;
+    background-position: -41px -47px;
+}
+.egg-gage.small .egg {
+    display: inline-block;
+    margin-right: 2px;
+    width: 18px;
+    height: 26px;
+    background: url(/public/TP4_img/sprite_egg.png) no-repeat 0 -47px;
+    vertical-align: middle;
+}
+
+
+[class|="sect"][class*="chart"] .score .egg-gage, [class|="sect"][class*="chart"] .score .percent {
+    vertical-align: middle;
+}
+.egg-gage.small .percent {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: 'verdana';
+    font-size: 12px;
+    color: #000000;
+    vertical-align: middle;
+}
+[class|="sect"][class*="chart"] .txt-info {
+    margin-top: 3px;
+    height: 13px;
+    color: #666666;
+    font-weight: 500;
+    white-space: nowrap;
+}
+.txt-info {
+    display: block;
+    color: #999999;
+    font-size: 12px;
+}
+.txt-info > strong {
+    font-size: 11px;
+}
+
+[class|="sect"][class*="wishlist"] .like, [class|="sect"][class*="chart"] .like {
+    text-align: left !important;
+}
+[class|="sect"][class*="chart"] .like {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+}
+.like {
+    display: inline-block;
+    margin-right: 3px;
+}
+[class|="sect"][class*="wishlist"] .like .link-reservation, [class|="sect"][class*="chart"] .like .link-reservation {
+    width: 97px !important;
+    height: 25px !important;
+    background: url(/public/TP4_img/sprite_preegg.png) 0 -110px no-repeat !important;
+}
+[class|="sect"][class*="chart"] .link-reservation {
+    width: 57px;
+    height: 25px;
+    background-position: -96px 0px;
+}
+.link-reservation {
+    display: inline-block;
+    width: 91px;
+    height: 35px;
+    background: url(/public/TP4_img/sprite_btn.png) 0 0 no-repeat;
+    font: 0/0 a;
+    zoom: 1;
+    vertical-align: top;
+}
+
+
+[class|="sect"][class*="chart"] .chart-ad {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.chart-ad {
+    width: 189px;
+    height: 414px;
+    padding: 2px 4px;
+    /* border: 3px solid #070707; */
+    background: #212120;
+}
+.chart-ad .box-com {
+    padding: 13px 14px 12px;
+    border: 1px solid #070707;
+    background: #222221;
+}
+iframe {
+    overflow-clip-margin: content-box !important;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+    overflow: clip !important;
+}
+
+.chart_ad_desc {
+    width: 160px;
+    margin: 0 auto;
+    padding: 16px 0 0 0;
+}
+
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.chart_ad_desc dt {
+    margin-bottom: 7px;
+    font-size: 0;
+}
+dt {
+    display: block;
+}
+
+.chart_ad_desc img {
+    margin: 0;
+    padding: 0;
+}
+
+.chart-ad-bottom {
+    clear: both;
+    padding: 20px 0 0;
+}
