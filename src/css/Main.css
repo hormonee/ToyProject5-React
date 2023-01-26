@@ -61,7 +61,7 @@ header .top-banner>a>button {
   height: 53px;
 }
 
-.main-header .main-header-inner1>a>img {
+.main-header .main-header-inner1>a img {
   width: 117px;
 }
 
@@ -98,7 +98,7 @@ header .top-banner>a>button {
 }
 
 .header_bottom_outer .header_bottom_wrap {
-  border-bottom: 2px solid red;
+  border-bottom: 3px solid red;
   height: 50px;
   box-sizing: border-box;
 }
@@ -164,11 +164,11 @@ header .top-banner>a>button {
 }
 /* 메뉴 마우스 오버 아웃 끝 */
 
-.header_bottom>.menu_bar>ul>li>span>a {
+.header_bottom>.menu_bar>ul>li>span a {
   color: black;
 }
 
-.header_bottom_outer .menu_bar .gnb .menu_bar_reservation > span > a {
+.header_bottom_outer .menu_bar .gnb .menu_bar_reservation > span a {
   color: red;
 }
 
@@ -742,3 +742,63 @@ stopPlay -> gotoTopBtn
   border-radius: 5px;
   border: none;
 }
+
+.steps4 .option1 {
+  padding: 20px 20px 0;
+}
+.steps4 .option1 .option1-inner {
+  width: 302px;
+  border-bottom: 1px solid #999;
+}
+.steps4 .option1 span {
+  display: inline-block;
+  width: 40px;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.steps4 .option1 .morning {
+  background: url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/icon/icon_morning_night.png) no-repeat left;
+  background-position: 0px 0px;
+  padding-left: 18px;
+}
+.steps4 .option1 .night {
+  background: url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/icon/icon_morning_night.png) no-repeat left;
+  background-position: 0px -20px;
+  padding-left: 16px;
+}
+.steps4 .option2 {
+  font-size: 14px;
+  color: #777;
+  height: 500px;
+  line-height: 480px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+article {
+  width: 100%;
+  height: 120px;
+  text-align: center;
+  margin-top: 5px;
+  background-color: #222;
+}
+.article-inner {
+  overflow: hidden;
+  width: 980px;
+  height: 120px;
+}
+.articleLeft {
+  float: left;
+}
+.articleLeft span {
+  display: inline-block;
+  width: 200px;
+  line-height: 120px;
+  font-size: 28px;
+  color: #777;
+}
+.articleRight {
+  float: right;
+}
+
+
