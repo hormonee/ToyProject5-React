@@ -74,7 +74,7 @@ const Reservation = () => {
             <div className="section-wrap">
 
               <div className="steps steps1">
-                <div className="title">
+                <div className="sort">
                   영화
                 </div>
                 <div className="options options1">
@@ -117,7 +117,7 @@ const Reservation = () => {
               </div>
 
               <div className="steps steps2">
-                <div className="title">
+                <div className="sort">
                   극장
                 </div>
                 <div className="options options2">
@@ -247,7 +247,7 @@ const Reservation = () => {
 
               <div className="steps steps3">
                 <div className="step step1">
-                  <div className="title">
+                  <div className="sort">
                     날짜
                   </div>
                   <div className="options">
@@ -359,7 +359,7 @@ const Reservation = () => {
 
               <div className="steps steps4">
                 <div className="step step1">
-                  <div className="title">
+                  <div className="sort">
                     시간
                   </div>
                   <div className="options">
