@@ -324,7 +324,6 @@ button {
     margin-bottom: 10px;
 }
 
-
 [class|="sect"][class*="chart"] > h3:first-child + ol .rank, [class|="sect"][class*="chart"] > h4:first-child + ol .rank, [class|="sect"][class*="chart"] > .spec + ol .rank {
     background: #fb4357;
 }
@@ -706,4 +705,8 @@ dt {
     line-height: 28px;
     height: 28px;
     letter-spacing: -1px;
+}
+
+.sect-movie-chart .cl .box-image .thumb-image img {
+    height: 260px;
 }
