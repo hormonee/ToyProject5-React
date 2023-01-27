@@ -18,27 +18,27 @@ const MovieDetailInfo = () => {
                         샘 워싱턴, 조 샐다나, 시고니 위버, 스티븐 랭, 케이트 윈슬렛이 출연하고<br />
                         존 랜도가 프로듀싱을 맡았다.
                     </div>
-                    <div className='chart'>
-                        <ul className='graph'>
+                    <div className='chart1'>
+                        <ul className='graph1'>
                             <li>
                                 <strong>성별 예매 분포</strong>
                                 <div className='graph-sex'>
-                                    <img src=" " alt='garph-sex' style={{ paddingTop: '20px' }} />
+                                    <img src="/TP4_img/graph_sex.png" alt='garph-sex' style={{ paddingTop: '20px' }} />
                                 </div>
                             </li>
                             <li>
                                 <strong>연령별 예매 분포</strong>
                                 <div className='graph-age'>
-                                    <img src="TP4_img/graph_age.png" alt='garph-age' />
+                                    <img src="/TP4_img/graph_age.png" alt='garph-age' />
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div className='middle-movie-ad'>
-                        <img src="TP4_img/babylon.jpg" alt='babylon' />
+                        <img src="/TP4_img/babylon.jpg" alt='babylon' />
                     </div>
                     <div className='aside-movie-ad'>
-                        <img src="TP4_img/babylon2.jpg" alt='babylon' />
+                        <img src="/TP4_img/babylon2.jpg" alt='babylon' />
                     </div>
 
                 </div>

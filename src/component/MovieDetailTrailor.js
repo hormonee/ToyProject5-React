@@ -16,7 +16,7 @@ const MovieDetailTrailor = () => {
                     <li>
                         <div className='box-image'>
                             <span>
-                            <img src="TP4_img/avatar1.jpg" alt='avatar1'/>
+                            <img src="/TP4_img/avatar1.jpg" alt='avatar1'/>
                                 <span className='play-icon'>영상보기</span>
                             </span>
                         </div>
@@ -28,7 +28,7 @@ const MovieDetailTrailor = () => {
                     <li>
                         <div className='box-image'>
                             <span>
-                                <img src="TP4_img/avatar2.jpg" alt='avatar2'/>
+                                <img src="/TP4_img/avatar2.jpg" alt='avatar2'/>
                                 <span className='play-icon'>영상보기</span>
                             </span>
                         </div>
@@ -40,7 +40,7 @@ const MovieDetailTrailor = () => {
                     <li>
                         <div className='box-image'>
                             <span>
-                                <img src='TP4_img/avatar3.jpg' alt='avatar3'/>
+                                <img src='/TP4_img/avatar3.jpg' alt='avatar3'/>
                                 <span className='play-icon'>영상보기</span>
                             </span>
                         </div>
@@ -52,7 +52,7 @@ const MovieDetailTrailor = () => {
                     <li>
                         <div className='box-image'>
                             <span>
-                                <img src='TP4_img/avatar4.jpg' alt='avatar4'/>
+                                <img src='/TP4_img/avatar4.jpg' alt='avatar4'/>
                                 <span className='play-icon'>영상보기</span>
                             </span>
                         </div>
@@ -64,7 +64,7 @@ const MovieDetailTrailor = () => {
                     <li>
                         <div className='box-image'>
                             <span>
-                                <img src='TP4_img/avatar5.jpg' alt='avatar6'/>
+                                <img src='/TP4_img/avatar5.jpg' alt='avatar6'/>
                                 <span className='play-icon'>영상보기</span>
                             </span>
                         </div>
@@ -76,7 +76,7 @@ const MovieDetailTrailor = () => {
                     <li>
                         <div className='box-image'>
                             <span>
-                                <img src='TP4_img/avatar7.jpg' alt='avatar7'/>
+                                <img src='/TP4_img/avatar6.jpg' alt='avatar6'/>
                                 <span className='play-icon'>영상보기</span>
                             </span>
                         </div>
@@ -88,7 +88,7 @@ const MovieDetailTrailor = () => {
                     <li>
                         <div className='box-image'>
                             <span>
-                                <img src='TP4_img/avatar7.jpg' alt='avatar7'/>
+                                <img src='/TP4_img/avatar7.jpg' alt='avatar7'/>
                                 <span className='play-icon'>영상보기</span>
                             </span>
                         </div>
@@ -100,7 +100,7 @@ const MovieDetailTrailor = () => {
                     <li>
                         <div className='box-image'>
                             <span>
-                                <img src='TP4_img/avatar8.jpg' alt='avatar8'/>
+                                <img src='/TP4_img/avatar8.jpg' alt='avatar8'/>
                                 <span className='play-icon'>영상보기</span>
                             </span>
                         </div>
@@ -112,7 +112,7 @@ const MovieDetailTrailor = () => {
                     <li>
                         <div className='box-image'>
                             <span>
-                                <img src='TP4_img/avatar9.jpg' alt='avatar9'/>
+                                <img src='/TP4_img/avatar9.jpg' alt='avatar9'/>
                                 <span className='play-icon'>영상보기</span>
                             </span>
                         </div>

@@ -3,18 +3,47 @@ import Header from './layout/Header';
 import Section from './layout/Section';
 import Article from './layout/Article';
 import { Route, Routes } from 'react-router-dom';
-import Reservation from './layout/Reservation';
+import Reservation from './component/Reservation';
+import Video from './layout/Video';
+import MovieList from './component/MovieList';
+import MovieDetail from './component/MovieDetail';
+import MovieDetailInfo from './component/MovieDetailInfo';
+import MovieDetailTrailor from './component/MovieDetailTrailor';
 
 function App() {
+
+  // //쿠키 이름, 쿠키 값 조회
+  // var cookieArr = document.cookie.split("; ");
+
+  // var cnt = 0;
+  // for (let i in cookieArr) {
+  //   if (cookieArr[i].split("=")[0] == "cjmPopupPage") {
+  //     cnt++;
+  //   }
+  // }
+  // if (cnt == 0) {
+  //   window.open("cjmPopup.html", "cjmPopupPage", "width=360px, height=325px");
+  // }
 
 
   return (
     <Routes>
       <Route path='/' element={<Header />}>
-        <Route path='/' element={<Section />}>
-          <Route path='/' element={<Article />} />
+        <Route path='/' element={<Video />}>
+          <Route path='/' element={<Section />}>
+            <Route path='/' element={<Article />} />
+          </Route>
         </Route>
-        <Route path='/reservation' element={<Reservation />} />
+        <Route path='/movielist' element={<MovieList />}>
+
+        </Route>
+        <Route path='/moviedetail' element={<MovieDetail />}>
+            <Route path='/moviedetail/1' element={<MovieDetailInfo/>}/>
+            <Route path='/moviedetail/2' element={<MovieDetailTrailor/>}/>
+        </Route>
+        <Route path='/reservation' element={<Reservation />}>
+
+        </Route>
       </Route>
     </Routes>
   );
