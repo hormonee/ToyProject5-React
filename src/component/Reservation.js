@@ -1,8 +1,63 @@
-import { Fragment } from "react"
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Fragment, useEffect, useRef, useState } from "react"
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import '../css/Reservation.css';
 
 const Reservation = () => {
+
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    const tempArea = "인천";
+
+    axios.get("https://raw.githubusercontent.com/hormonee/ToyProjectData/master/ReservationData.json")
+      .then(response => {
+        setData(response.data);
+        // console.log(response);
+        // console.log(response.data);
+        // console.log(response.data.seoul);
+      });
+  }, []);
+
+  let param = useParams();
+  let title = param.title;
+  let area = param.area;
+  let areaDetail = param.areaDetail;
+  let date = param.date;
+  let time = param.time;
+
+  /*
+  const [queryString, setQueryString] = useSearchParams();
+  console.log(queryString);
+
+  let area = queryString.get("area");
+  let areaDetail = queryString.get("areaDetail");
+  console.log(area);
+  console.log(areaDetail);
+  */
+
+  const resMovieList = useRef(null);
+
+  const selectMovie = (e) => {
+    if(e.target.tagName != "SPAN") return;
+
+    // console.log(e.target.parentElement.parentElement);
+    console.log(e.target.parentElement.parentElement.parentElement);
+    // console.log(e.target.parentElement.parentElement.parentElement.parentElement.children);
+    // console.log(e.target.parentElement.parentElement.parentElement);
+    let arr = e.target.parentElement.parentElement.parentElement.parentElement.children;
+    for(let i=0; i<arr.length; i++) {
+      arr[i].style.backgroundColor = "transparent";
+      arr[i].style.border = "none";
+      arr[i].firstElementChild.children[1].children[0].style.color = "#666";
+    }
+
+    e.target.parentElement.parentElement.parentElement.style.backgroundColor = "#333";
+    e.target.parentElement.parentElement.parentElement.style.border = "3px solid #777";
+    e.target.style.color = "white";
+  }
+
+
 
 
   return (
@@ -34,27 +89,27 @@ const Reservation = () => {
                       <span className="option2-span2">가나다순</span>
                     </div>
                     <div className="option3">
-                      <ul>
-                        <li><img src="TP4_img/ageALL.svg" /><span>방탄소년단:옛투컴인시네마</span></li>
-                        <li><img src="TP4_img/ageLimit12.svg" /><span>아바타-물의길</span></li>
-                        <li><img src="TP4_img/ageLimit15.svg" /><span>상견니</span></li>
-                        <li><img src="TP4_img/ageLimit12.svg" /><span>더퍼스트슬램덩크</span></li>
-                        <li><img src="TP4_img/ageLimit15.svg" /><span>유령</span></li>
-                        <li><img src="TP4_img/ageLimit15.svg" /><span>메간</span></li>
-                        <li><img src="TP4_img/ageLimit12.svg" /><span>교섭</span></li>
-                        <li><img src="TP4_img/ageAll.svg" /><span>위너2022콘서트더서클-더무비</span></li>
-                        <li><img src="TP4_img/ageLimit15.svg" /><span>천룡팔부-교봉전</span></li>
-                        <li><img src="TP4_img/ageLimit12.svg" /><span>영웅</span></li>
-                        <li><img src="TP4_img/ageLimit15.svg" /><span>다나카1st내한콘서트-생중계</span></li>
-                        <li><img src="TP4_img/ageLimit12.svg" /><span>오늘밤,세계에서이사랑이사라진...</span></li>
-                        <li><img src="TP4_img/ageLimit18.svg" /><span>바빌론</span></li>
-                        <li><img src="TP4_img/ageLimit15.svg" /><span>뮤지컬레드북</span></li>
-                        <li><img src="TP4_img/ageLimit15.svg" /><span>라인</span></li>
-                        <li><img src="TP4_img/ageAll.svg" /><span>엄마의땅-그리샤와숲의주인</span></li>
-                        <li><img src="TP4_img/ageLimit12.svg" /><span>열여덟,어른이되는나이</span></li>
-                        <li><img src="TP4_img/ageAll.svg" /><span>장화신은고양이-끝내주는모험</span></li>
-                        <li><img src="TP4_img/ageAll.svg" /><span>코코</span></li>
-                        <li><img src="TP4_img/ageAll.svg" /><span>겨울왕국2</span></li>
+                      <ul ref={resMovieList} onClick={selectMovie}>
+                        <div><li><img src="/TP4_img/ageALL.svg" /><Link to="/reservation/bts"><span>방탄소년단:옛투컴인시네마</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to="/reservation/avatar"><span>아바타-물의길</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to="/reservation/sgn"><span>상견니</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to="/reservation/tfs"><span>더퍼스트슬램덩크</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to="/reservation/ghost"><span>유령</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to="/reservation/mg"><span>메간</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to="/reservation/gs"><span>교섭</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageAll.svg" /><Link to="/reservation/winner"><span>위너2022콘서트더서클-더무비</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to="/reservation/gbj"><span>천룡팔부-교봉전</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to="/reservation/hero"><span>영웅</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to="/reservation/danaka"><span>다나카1st내한콘서트-생중계</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to="/reservation/tonight"><span>오늘밤,세계에서이사랑이사라진...</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit18.svg" /><Link to="/reservation/babylon"><span>바빌론</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to="/reservation/redbook"><span>뮤지컬레드북</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to="/reservation/line"><span>라인</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageAll.svg" /><Link to="/reservation/grisha"><span>엄마의땅-그리샤와숲의주인</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to="/reservation/eighteen"><span>열여덟,어른이되는나이</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageAll.svg" /><Link to="/reservation/rainbootscat"><span>장화신은고양이-끝내주는모험</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageAll.svg" /><Link to="/reservation/coco"><span>코코</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageAll.svg" /><Link to="/reservation/frozen"><span>겨울왕국2</span></Link></li></div>
                       </ul>
                     </div>
                   </div>
@@ -75,9 +130,9 @@ const Reservation = () => {
                     <div className="option2">
                       <ul className="area">
                         <li>
-                          서울(31)
+                          <Link to="/reservation?area=서울">서울(31)</Link>
                           <ul className="areaDetail_abled">
-                            <li><Link to="">강남</Link></li>
+                            <li><Link to="/reservation?area=seoul&areaDetail=gangnam">강남</Link></li>
                             <li><Link to="">강변</Link></li>
                             <li><Link to="">건대입구</Link></li>
                             <li><Link to="">구로</Link></li>
