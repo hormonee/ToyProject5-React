@@ -23,12 +23,10 @@ ol {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 40px;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
-/* img {
-    overflow-clip-margin: content-box;
-    overflow: clip;
-} */
 
 div {
     display: block;
@@ -270,7 +268,7 @@ button {
 }
 
 .sect-movie-chart {
-    margin-top: 50px;
+    margin-top: 4px;
 }
 
 .hidden {
@@ -308,8 +306,8 @@ button {
 }
 
 [class|="sect"][class*="chart"] > ol {
-/* padding-top: 30px; */
-    margin-left: -64px;
+    padding-top: 30px;
+    margin-left: -104px;
     zoom: 1;
 }
 [class|="sect"][class*="chart"] > ol > li {
@@ -403,10 +401,7 @@ input, select, img {
     vertical-align: middle;
 }
 
-img {
-    overflow-clip-margin: content-box;
-    overflow: clip;
-}
+
 
 i.cgvIcon.etc.age12 {
     overflow: hidden;
@@ -566,7 +561,6 @@ i.cgvIcon {
     width: 150px;
 }
 
-
 egg-gage.small .egg.great {
     width: 16px;
     background-position: -41px -47px;
@@ -644,11 +638,11 @@ egg-gage.small .egg.great {
 [class|="sect"][class*="chart"] .chart-ad {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 12px;
 }
 .chart-ad {
     width: 189px;
-    height: 414px;
+    height: 390px;
     padding: 2px 4px;
     /* border: 3px solid #070707; */
     background: #212120;
@@ -657,20 +651,29 @@ egg-gage.small .egg.great {
     padding: 13px 14px 12px;
     border: 1px solid #070707;
     background: #222221;
+    overflow: hidden;
+
+   
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
 }
 iframe {
-    overflow-clip-margin: content-box !important;
+    /* overflow-clip-margin: content-box !important; */
     border-width: 2px;
     border-style: inset;
     border-color: initial;
     border-image: initial;
-    overflow: clip !important;
+    overflow: hidden;
+        
 }
 
 .chart_ad_desc {
-    width: 160px;
+    width: 189px;
     margin: 0 auto;
-    padding: 16px 0 0 0;
+    padding: 1px 0 0 0;
 }
 
 dl {
@@ -696,4 +699,11 @@ dt {
 .chart-ad-bottom {
     clear: both;
     padding: 20px 0 0;
+}
+
+.chart_ad_desc dd span {
+    font-size: 14px;
+    line-height: 28px;
+    height: 28px;
+    letter-spacing: -1px;
 }
