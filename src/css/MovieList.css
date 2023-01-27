@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0 auto;
     padding: 0;
     list-style: none;
@@ -9,9 +9,9 @@
 li {
     display: list-item;
     text-align: -webkit-match-parent;
-}
+} */
 
-ol, ul {
+ol {
     list-style: none;
 }
 
@@ -25,19 +25,19 @@ ol {
     padding-inline-start: 40px;
 }
 
-img {
+/* img {
     overflow-clip-margin: content-box;
     overflow: clip;
-}
+} */
 
 div {
     display: block;
 }
 
-a {
+/* a {
     color: inherit;
     text-decoration: none;
-}
+} */
 
 
 
@@ -64,14 +64,14 @@ option {
     padding: 0px 2px 1px;
 }
 
-h4 {
+/* h4 {
     display: block;
     margin-block-start: 1.33em;
     margin-block-end: 1.33em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
-}
+} */
 strong {
     font-weight: 500;
 }
@@ -357,7 +357,7 @@ button {
 a:-webkit-any-link {
     color: -webkit-link;
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 [class|="sect"][class*="chart"] .score {

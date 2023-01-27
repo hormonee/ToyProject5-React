@@ -1,29 +1,21 @@
 import { Fragment } from "react"
+import { Link } from "react-router-dom";
 import '../css/Reservation.css';
-import Header from './Header';
 
 const Reservation = () => {
-
-  console.log(Header);
-  console.log(Header.menuTable);
-
-  //display: out
-  const delDropDown = () => {
-    Header.menuTable.current.style.display = "none";
-  }
 
 
   return (
     <Fragment>
       <div className="outer">
         <div className="outer-wrap">
-          <div className="threeBtns" onMouseOver={delDropDown}>
+          <div className="threeBtns">
             <button className="threeBtns1"><span>예매 다시하기</span></button>
             <button className="threeBtns2"><span>상영 시간표</span></button>
             <button className="threeBtns3"><span>ENGLISH</span></button>
           </div>
 
-          <section>
+          <section className="resSection">
             <div className="section-wrap">
 
               <div className="steps steps1">
@@ -85,37 +77,37 @@ const Reservation = () => {
                         <li>
                           서울(31)
                           <ul className="areaDetail_abled">
-                            <li>강남</li>
-                            <li>강변</li>
-                            <li>건대입구</li>
-                            <li>구로</li>
-                            <li>대학로</li>
-                            <li>동대문</li>
-                            <li>등촌</li>
-                            <li>명동</li>
-                            <li>명동역 씨네라이..</li>
-                            <li>미아</li>
-                            <li>방학</li>
-                            <li>불광</li>
-                            <li>상봉</li>
-                            <li>성신여대입구</li>
-                            <li>송파</li>
-                            <li>수유</li>
-                            <li>신촌아트레온</li>
-                            <li>씨네드쉐프 압구정</li>
-                            <li>씨네드쉐프 용산...</li>
-                            <li>압구정</li>
-                            <li>여의도</li>
-                            <li>연남</li>
-                            <li>영등포</li>
-                            <li>왕십리</li>
-                            <li>용산아이파크몰</li>
-                            <li>중계</li>
-                            <li>천호</li>
-                            <li>청담씨네시티</li>
-                            <li>피카디리1958</li>
-                            <li>하계</li>
-                            <li>홍대</li>
+                            <li><Link to="">강남</Link></li>
+                            <li><Link to="">강변</Link></li>
+                            <li><Link to="">건대입구</Link></li>
+                            <li><Link to="">구로</Link></li>
+                            <li><Link to="">대학로</Link></li>
+                            <li><Link to="">동대문</Link></li>
+                            <li><Link to="">등촌</Link></li>
+                            <li><Link to="">명동</Link></li>
+                            <li><Link to="">명동역 씨네라이..</Link></li>
+                            <li><Link to="">미아</Link></li>
+                            <li><Link to="">방학</Link></li>
+                            <li><Link to="">불광</Link></li>
+                            <li><Link to="">상봉</Link></li>
+                            <li><Link to="">성신여대입구</Link></li>
+                            <li><Link to="">송파</Link></li>
+                            <li><Link to="">수유</Link></li>
+                            <li><Link to="">신촌아트레온</Link></li>
+                            <li><Link to="">씨네드쉐프 압구정</Link></li>
+                            <li><Link to="">씨네드쉐프 용산...</Link></li>
+                            <li><Link to="">압구정</Link></li>
+                            <li><Link to="">여의도</Link></li>
+                            <li><Link to="">연남</Link></li>
+                            <li><Link to="">영등포</Link></li>
+                            <li><Link to="">왕십리</Link></li>
+                            <li><Link to="">용산아이파크몰</Link></li>
+                            <li><Link to="">중계</Link></li>
+                            <li><Link to="">천호</Link></li>
+                            <li><Link to="">청담씨네시티</Link></li>
+                            <li><Link to="">피카디리1958</Link></li>
+                            <li><Link to="">하계</Link></li>
+                            <li><Link to="">홍대</Link></li>
                           </ul>
                         </li>
                       </ul>
@@ -332,21 +324,21 @@ const Reservation = () => {
               </div>
 
             </div>
-          </section>
 
-          <article>
-            <div className="article-inner">
-              <div className="articleLeft">
-                <span>영화 선택</span>
-                <span>극장 선택</span>
-                <span>좌석선택</span>
-                <span className="payment">결제</span>
-              </div>
-              <div className="articleRight">
-                <span></span>
+            <div className="selection-outer">
+              <div className="selection-inner">
+                <div className="selectionLeft">
+                  <span>영화 선택</span>
+                  <span>극장 선택</span>
+                  <span>좌석선택</span>
+                  <span className="payment">결제</span>
+                </div>
+                <div className="selectionRight">
+                  <span></span>
+                </div>
               </div>
             </div>
-          </article>
+          </section>
 
         </div>
       </div >

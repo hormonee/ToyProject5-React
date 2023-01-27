@@ -34,6 +34,8 @@
 
 .movie-trailor ul{
     margin-left: -10px;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .movie-trailor li{
