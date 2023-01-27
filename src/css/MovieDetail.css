@@ -1,8 +1,7 @@
 /* container 시작 */
-a{
-    text-decoration: none;
+a:link{
+    color: white;
 }
-
 a:visited{
     color: white;
 }
@@ -236,7 +235,7 @@ dl{
 .screentype1{
     position: absolute;
     right: 0;
-    top: 170px;
+    top: 220px;
 }
 
 .screentype1 .imax1{
