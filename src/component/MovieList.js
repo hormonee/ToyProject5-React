@@ -58,7 +58,7 @@ const MovieList = () => {
                                 <div className="box-image">
                                     <strong className="rank">No.1</strong>
                                     <span className="thumb-image">
-                                        <Link to="/moviedetail"><img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86072/86072_320.jpg" /></Link>
+                                        <Link to="/moviedetail/1"><img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000086/86072/86072_320.jpg" /></Link>
                                         {/* <!-- 영상물 등급 노출 변경 2022.08.24 --> */}
                                         <i className="cgvIcon etc age12">12</i>
                                         {/*  <!-- <span className="ico-grade 12">12</span> --> */}
