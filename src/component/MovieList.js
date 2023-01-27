@@ -54,7 +54,7 @@ const MovieList = () => {
 
                         <h4 className="hidden">무비차트 - 예매율순</h4>
                         <ol>
-                            <li>
+                            <li className='cl'>
                                 <div className="box-image">
                                     <strong className="rank">No.1</strong>
                                     <span className="thumb-image">
@@ -63,7 +63,7 @@ const MovieList = () => {
                                         <i className="cgvIcon etc age12">12</i>
                                         {/*  <!-- <span className="ico-grade 12">12</span> --> */}
                                     </span>
-                                    <span className="screentype">
+                                    {/* <span className="screentype">
 
                                         <a className="imax" href="#" title="IMAX 상세정보 바로가기" data-regioncode="07">IMAX</a>
 
@@ -71,7 +71,7 @@ const MovieList = () => {
 
                                         <a className="screenx" href="#" title="SCREENX 상세정보 바로가기" data-regioncode="SCX">SCREENX</a>
 
-                                    </span>
+                                    </span> */}
                                 </div>
                                 <div className="box-contents">
                                     <a href="/movies/detail-view/?midx=86072">
@@ -200,7 +200,6 @@ const MovieList = () => {
 
 
                         <ol>
-
                             <li>
                                 <div className="box-image">
                                     <strong className="rank">No.4</strong>
@@ -372,8 +371,11 @@ const MovieList = () => {
                         </ol>
                         <div className="chart-ad">
                             <div className="box-com">
-                                <iframe src="http://ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/sub@Movie_Chart" width="160" height="300" id="Movie_Chart" name="Movie_Chart" title="기업광고 -CGV"></iframe>
+                                <img src="/TP4_img/1221_160x300.jpg" width="155" height="300"  
+                                
+                                id="Movie_Chart" name="Movie_Chart" title="기업광고 -CGV"/>
                             </div>
+
                             <div className="chart_ad_desc">
                                 <dl>
                                     <dt>
@@ -387,13 +389,14 @@ const MovieList = () => {
                             </div>
                         </div>
                         <div className="chart-ad-bottom" id="chart-ad-bottom">
-                            <iframe src="http://ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/sub@SponsorBar_980" width="980" height="90" title="" name="SponsorBar_980" id="SponsorBar_980"></iframe>
+                            <img src="/TP4_img/0123_980x90.jpg" width="980" height="90" title="" name="SponsorBar_980" id="SponsorBar_980"/>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     )
+    
 
 }
 export default MovieList;
