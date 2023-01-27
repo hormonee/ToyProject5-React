@@ -41,9 +41,13 @@ function App() {
             <Route path='/moviedetail/1' element={<MovieDetailInfo/>}/>
             <Route path='/moviedetail/2' element={<MovieDetailTrailor/>}/>
         </Route>
-        <Route path='/reservation' element={<Reservation />}>
 
-        </Route>
+        <Route path='/reservation' element={<Reservation />} />
+        <Route path='/reservation/:title' element={<Reservation />} />
+        <Route path='/reservation/:title/:area' element={<Reservation />} />
+        <Route path='/reservation/:title/:area/:areaDetail' element={<Reservation />} />
+        <Route path='/reservation/:title/:area/:areaDetail/:date' element={<Reservation />} />
+        <Route path='/reservation/:title/:area/:areaDetail/:date/:time' element={<Reservation />} />
       </Route>
     </Routes>
   );
