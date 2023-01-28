@@ -481,4 +481,3 @@ const Reservation = () => {
     </Fragment >
   )
 }
-export default Reservation;

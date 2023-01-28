@@ -59,13 +59,13 @@ const Header = () => {
     //메뉴바 상단 고정 및 고정 버튼 토글
     const fixedBtn = useRef(null);
     const topMenu = useRef(null);
-    var topMenuPosition = topMenu.offsetTop;
+    var topMenuPosition = 194;
     const [isActive, setActive] = useState(false);
 
     function menuBarFixed() {
         topMenuPosition = topBannerDiv.current.style.display == "none" ? 114 : 194;
 
-        if (window.pageYOffset > topMenuPosition) {
+        if (window.scrollY > topMenuPosition) {
             setActive(true);
             fixedBtn.current.style.display = "flex";
         } else {
@@ -84,6 +84,7 @@ const Header = () => {
     // //메뉴바 마우스 오버 아웃
     const mainHeader = useRef(null);
     const menuTable = useRef(null);
+    const menuTableOuter = useRef(null);    // 드롭 다운 함수 안에 심어보자 flex 로 말고 바로 스타일로!
     //display: flex
     const dropDownMenu = () => {
         menuTable.current.style.display = "flex";
@@ -93,23 +94,23 @@ const Header = () => {
         menuTable.current.style.display = "none";
     }
 
-    //메뉴바 상단 고정 시 드롭다운 상태 해제
-    function delFixedMenuBar() {
-        topMenuPosition = topBannerDiv.current.style.display == "none" ? 114 : 194;
-
-        if (menuTable.current.style.display == "flex" && window.pageYOffset > topMenuPosition) {
-            if (window.pageYOffset > 269) {
+    //메뉴바 드롭다운 상태 해제
+    const delFixedMenuBar = (e) => {
+        if (menuTable.current.style.display == "flex" && window.pageYOffset >= topMenuPosition) {
+            if (e.clientY > 263) {
                 menuTable.current.style.display = "none";
             };
+        } else if(menuTable.current.style.display == "flex" && window.pageYOffset < topMenuPosition) {
+            if (e.nativeEvent.offsetY > 210) {
+                menuTable.current.style.display = "none";
+            };
+        }
+    }
+    const delFixedMenuBar2 = (e) => {
+        if (e.nativeEvent.offsetY > 18) {
+            menuTable.current.style.display = "none";
         };
     }
-
-    useEffect(() => {
-        window.addEventListener('mousemove', delFixedMenuBar);
-        return () => {
-            window.removeEventListener('mousemove', delFixedMenuBar);
-        };
-    });
 
 
     return (
@@ -126,7 +127,7 @@ const Header = () => {
                         <div className="main-header" ref={mainHeader} onMouseOver={delDropDown}>
                             <div className="main-header-contents">
                                 <div className="main-header-inner main-header-inner1">
-                                    <Link to="/"><img src="/TP4_img/logoRed.png" onMouseDown={focusOn3} onMouseUp={focusOut3}/></Link>
+                                    <Link to="/" onMouseDown={focusOn3} onMouseUp={focusOut3}><img src="/TP4_img/logoRed.png"/></Link>
                                     <span>C U L T U R E P L E X</span>
                                 </div>
                                 <ul className="main-header-inner main-header-inner2">
@@ -162,7 +163,7 @@ const Header = () => {
                                 </ul>
                             </div>
                         </div>
-                        <div className={isActive ? "sticky header_bottom_outer_fixed in" : "header_bottom_outer"} id="hbo" ref={topMenu}>
+                        <div className={isActive ? "sticky header_bottom_outer_fixed in" : "header_bottom_outer"} id="hbo" ref={topMenu} onMouseMove={delFixedMenuBar}>
                             <div className="header_bottom_wrap in">
                                 <div className="header_bottom in">
                                     <div className="menu_bar in">
@@ -174,7 +175,7 @@ const Header = () => {
                                                 <span className="in"><a href="#" className="in" onMouseOver={dropDownMenu}>극장</a></span>
                                             </li >
                                             <li className="menu_bar_reservation in">
-                                                <span className="in"><Link to="/reservation" onMouseOver={dropDownMenu}>예매</Link></span>
+                                                <span className="in"><Link to="/reservation/none/seoul" onMouseOver={dropDownMenu}>예매</Link></span>
                                             </li>
                                             <li className="in">
                                                 <span className="in"><a href="#" className="in" onMouseOver={dropDownMenu}>스토어</a></span>
@@ -201,14 +202,14 @@ const Header = () => {
                                     </a>
                                 </div>
                             </div>
-                            <div className="menuTableOuter">
+                            <div className="menuTableOuter" ref={menuTableOuter}>
                                 {/* <div className={isActive ? "menuTable active" : "menuTable"} ref={menuTable}> */}
                                 {/* <div className={menuTableName} ref={menuTable}> */}
                                 <div className="menuTable" ref={menuTable} onMouseDown={focusOn2} onMouseUp={focusOut2}>
                                     <div className="snb in">
                                         <ul className="in">
                                             <li className="snbLi1 in">영화</li>
-                                            <li className="in"><span>무비차트</span></li>
+                                            <li className="in"><span><Link to="/movielist">무비차트</Link></span></li>
                                             <li className="in"><span>아트하우스</span></li>
                                             <li className="in"><span>ICECON</span></li>
                                         </ul>
@@ -223,7 +224,7 @@ const Header = () => {
                                     <div className="snb in">
                                         <ul className="in">
                                             <li className="snbLi1 in">예매</li>
-                                            <li className="in"><span>빠른예매</span></li>
+                                            <li className="in"><span><Link to="/reservation/none/seoul">빠른예매</Link></span></li>
                                             <li className="in"><span>상영스케줄</span></li>
                                             <li className="in"><span>English Ticketing</span></li>
                                             <li className="in"><span>English Schedule</span></li>
@@ -239,7 +240,7 @@ const Header = () => {
                                             <li className="in"><span>음료</span></li>
                                             <li className="in"><span>스낵</span></li>
                                             <li className="in"><span>플레이존</span></li>
-                                            <li className="in"><span>씨네샵</span></li>
+                                            <li className="in"><span onMouseMove={delFixedMenuBar2}>씨네샵</span></li>
                                         </ul>
                                     </div>
                                     <div className="snb in">

@@ -59,13 +59,18 @@ header .top-banner>a>button {
   box-sizing: border-box;
 }
 
+.main-header .main-header-inner1 span {
+  display: inline-block;
+  font-size: 17px;
+  vertical-align: bottom;
+}
+
 .main-header .main-header-inner1>a {
   height: 53px;
 }
 
 .main-header .main-header-inner1>a img {
   width: 117px;
-  box-sizing: border-box;
 }
 
 .main-header .main-header-inner2 {
@@ -138,6 +143,7 @@ header .top-banner>a>button {
 /* 메뉴 마우스 오버 아웃 시작 */
 .menuTableOuter {
   width: 100%;
+  border-bottom: 1px solid rgb(190, 190, 190);
 }
 .menuTable {
   width: 980px;
@@ -157,6 +163,7 @@ header .top-banner>a>button {
 .snbLi1 {
   font-weight: 700;
   font-size: 14px;
+  color: black;
 }
 .snb > ul > li {
   height: 24px;
@@ -164,6 +171,9 @@ header .top-banner>a>button {
 .snb > ul > li > span:hover {
   cursor: pointer;
   border-bottom: 1px solid #777;
+}
+.snb > ul > li > span > a {
+  color: #666;
 }
 /* 메뉴 마우스 오버 아웃 끝 */
 

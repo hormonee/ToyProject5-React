@@ -1,6 +1,7 @@
 .menuTable {
   display: none;
 }
+
 * {
   margin: 0 auto;
   padding: 0;
@@ -40,21 +41,25 @@ span {
   margin: 30px 0px 14px 5px;
   height: 30px;
 }
+
 .threeBtns button span {
   display: none;
 }
+
 .threeBtns .threeBtns1 {
   width: 113px;
   background-image: url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/top_buttons.png);
   background-position: -1px -122px;
   border-radius: 5px;
 }
+
 .threeBtns .threeBtns2 {
   width: 101px;
   background-image: url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/top_buttons.png);
   background-position: -1px -92px;
   border-radius: 5px;
 }
+
 .threeBtns .threeBtns3 {
   width: 81px;
   background-image: url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/top_buttons.png);
@@ -79,15 +84,19 @@ span {
   box-sizing: border-box;
   background-color: rgb(236, 236, 229);
 }
+
 .section-wrap .steps1 {
   width: 284px;
 }
+
 .section-wrap .steps2 {
   width: 265px;
 }
+
 .section-wrap .steps3 {
   width: 91px;
 }
+
 .section-wrap .steps4 {
   width: 346px;
 }
@@ -98,14 +107,15 @@ span {
   text-align: center;
   background-color: #333;
   color: white;
-  font-weight: 700px;
+  font-size: 16px;
 }
 
 .steps1 .options-wrap {
   width: 236px;
 }
 
-.steps1 .options1, .steps2 .options1 {
+.steps1 .options1,
+.steps2 .options1 {
   width: 254px;
   height: 550px;
   font-size: 14px;
@@ -119,7 +129,8 @@ span {
   box-sizing: border-box;
 }
 
-.steps1 .option1 span, .steps2 .option1 span {
+.steps1 .option1 span,
+.steps2 .option1 span {
   display: inline-block;
   border: 1px solid #999;
   height: 28px;
@@ -132,16 +143,20 @@ span {
 .steps1 .option1 .option1-span1 {
   width: 58px;
 }
+
 .steps1 .option1 .option1-span2 {
   width: 90px;
 }
+
 .steps1 .option1 .option1-span3 {
   width: 88px;
 }
 
 .steps1 .options .option2 {
-  border-bottom: 1px solid #999;
+  border-bottom: 1.5px solid #999;
   margin-bottom: 5px;
+  position: relative;
+  overflow: hidden;
 }
 
 .steps1 .options .option2 span {
@@ -150,7 +165,6 @@ span {
   height: 28px;
   line-height: 28px;
   text-align: center;
-  color: #777;
 }
 
 .steps1 .options .option3 ul {
@@ -158,9 +172,11 @@ span {
   height: 480px;
   margin-bottom: 3px;
 }
+
 .steps1 .options .option3 {
   box-sizing: border-box;
 }
+
 .steps1 .options .option3 li {
   text-align: left;
   margin: 5px 10px;
@@ -170,18 +186,22 @@ span {
   position: relative;
   box-sizing: border-box;
 }
+
 .steps1 .options .option3 li a {
   color: #666;
 }
+
 .steps1 .options .option3 li img {
   position: absolute;
   top: 7px;
   left: 0px;
 }
+
 .steps1 .options .option3 li span {
   margin-left: 25px;
   font-weight: 700;
-} 
+}
+
 /* 59 85 73 */
 .steps2 .option1 {
   width: 217px;
@@ -189,21 +209,27 @@ span {
   margin-top: 20px;
   box-sizing: border-box;
 }
+
 .steps2 .option1 span {
   display: inline-block;
   font-size: 14px;
 }
+
 .steps2 .option1 .option1-span1 {
   width: 59px;
 }
+
 .steps2 .option1 .option1-span2 {
   width: 85px;
 }
+
 .steps2 .option1 .option1-span3 {
   width: 73px;
 }
 
-.areaDetail_disabled { display: none; }
+.areaDetail_disabled {
+  display: none;
+}
 
 .steps2 .option2 {
   width: 217px;
@@ -211,6 +237,7 @@ span {
   font-size: 13px;
   color: #333;
 }
+
 .steps2 .option2 .area {
   margin: 0;
   width: 96px;
@@ -218,76 +245,120 @@ span {
   background-color: rgb(231, 231, 222);
   margin-bottom: 2px;
 }
+
 .steps2 .option2 .area li {
   position: relative;
   height: 31px;
   line-height: 31px;
 }
+.steps2 .option2 .area1 {
+  background-color: transparent;
+}
+.steps2 .option2 .area1 .area-li1 a {
+  color: black;
+  font-weight: 700;
+}
+.steps2 .option2 .area1 .area-li1 span {
+  display: block;
+}
+
+.steps2 .option2 .area li span {
+  font-size: 14px;
+  position: absolute;
+  top: 0px;
+  left: 99px;
+  display: none;
+}
+
 .steps2 .option2 .area li a {
+  font-size: 14px;
   color: #333;
 }
+
 .steps2 .option2 .area li ul {
   position: absolute;
   top: 0px;
-  left: 115px;
-  width: 114px;
+  left: 114px;
+  width: 105px;
   text-align: left;
   font-weight: 700;
   height: 514px;
   overflow: auto;
 }
+.steps2 .option2 .area li ul div {
+  box-sizing: border-box;
+}
+
 .steps2 .option2 .area li ul li {
   height: 33px;
+  box-sizing: border-box;
 }
+
 .steps2 .option2 .area li ul li a {
   color: black;
+  margin-left: 4px;
 }
 
 .steps3 .options {
   width: 90px;
   text-align: center;
 }
+
 .steps3 .jan {
   margin: 10px 0px 10px;
 }
-.steps3 .jan .jan-year, .steps3 .feb .feb-year {
+
+.steps3 .jan .jan-year,
+.steps3 .feb .feb-year {
   font-size: 14px;
   font-weight: 700;
   color: #666;
 }
-.steps3 .jan .jan-month, .steps3 .feb .feb-month {
+
+.steps3 .jan .jan-month,
+.steps3 .feb .feb-month {
   font-size: 32px;
   font-weight: 800;
   color: #666;
 }
-.steps3 .options li {
-  height: 30px;
-  margin-top: 10px;
+
+.steps3 .options ul li {
+  height: 36px;
+  margin: 6px 0px;
 }
+
 .steps3 .options li span {
   display: inline-block;
   width: 24px;
+  height: 40px;
+  line-height: 40px;
 }
+
 .steps3 .options li .day {
   font-size: 16px;
   color: #777;
 }
+
 .steps3 .options li .date {
   font-size: 16px;
   font-weight: 700;
 }
+
 .steps3 .options li.saturday {
   font-size: 16px;
   color: rgb(62, 114, 235);
 }
+
 .steps3 .options li .saturday {
   font-size: 16px;
   color: rgb(62, 114, 235);
 }
+
 .steps3 .options li.sunday {
   font-size: 16px;
   color: rgb(160, 43, 0);
 }
+
 .steps3 .options li .sunday {
   font-size: 16px;
   color: rgb(160, 43, 0);
@@ -302,26 +373,31 @@ span {
 .steps4 .option1 {
   padding: 20px 20px 0;
 }
+
 .steps4 .option1 .option1-inner {
   width: 302px;
   border-bottom: 1px solid #999;
 }
+
 .steps4 .option1 span {
   display: inline-block;
   width: 40px;
   font-size: 14px;
   margin-bottom: 5px;
 }
+
 .steps4 .option1 .morning {
   background: url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/icon/icon_morning_night.png) no-repeat left;
   background-position: 0px 0px;
   padding-left: 18px;
 }
+
 .steps4 .option1 .night {
   background: url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/icon/icon_morning_night.png) no-repeat left;
   background-position: 0px -20px;
   padding-left: 16px;
 }
+
 .steps4 .option2 {
   font-size: 14px;
   color: #777;
@@ -337,13 +413,16 @@ span {
   text-align: center;
   background-color: #222;
 }
+
 .selection-inner {
   overflow: hidden;
   height: 116px;
 }
+
 .selectionLeft {
   float: left;
 }
+
 .selectionLeft span {
   display: inline-block;
   width: 160px;
@@ -354,12 +433,15 @@ span {
   color: #777;
   border-right: 1px solid #555;
 }
+
 .selectionLeft .payment {
   border-right: none;
 }
+
 .selectionRight {
   float: right;
 }
+
 .selectionRight span {
   display: inline-block;
   width: 120px;
@@ -367,3 +449,27 @@ span {
   background: url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/tnb/tnb_buttons.png) no-repeat;
   background-position: 0px -216px;
 }
+
+.options1 .option1 .option1-span1 {
+  border: 2px solid black;
+  border-bottom: none;
+}
+.options1 .option1 .option1-span2, .options1 .option1 .option1-span3 {
+  border-top: 2px solid #999;
+  border-bottom: 2px solid black;
+}
+.options1 .option1 .option1-span3 {
+  border-right: 2px solid #999;
+}
+.options1 .option2 .option2-span1 {
+  border-bottom: 1.5px solid black;
+  color: black;
+}
+.options1 .option2 .option2-span3 {
+  position: absolute;
+  top: 14.5px;
+  left: 0px;
+  color: black;
+}
+
+
