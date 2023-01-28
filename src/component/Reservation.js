@@ -137,10 +137,10 @@ const Reservation = () => {
     if (e.target.tagName != "SPAN") return;
 
     const arr = e.target.parentElement.parentElement.parentElement.parentElement.children;
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < arr.length; i++) {
       const arr2 = arr[i].children[2].children;
 
-      for (let j = 0; j < 2; j++) {
+      for (let j = 0; j < arr2.length; j++) {
         arr2[j].children[0].style.color = "#777";
         arr2[j].children[1].style.color = "#666";
         arr2[j].style.backgroundColor = "transparent";
