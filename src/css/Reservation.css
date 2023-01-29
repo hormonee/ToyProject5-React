@@ -217,14 +217,21 @@ span {
 
 .steps2 .option1 .option1-span1 {
   width: 59px;
+  border: 2px solid black;
+  border-bottom: none;
 }
 
 .steps2 .option1 .option1-span2 {
   width: 85px;
+  border: none;
+  border-top: 2px solid #999;
+  border-bottom: 2px solid black;
 }
 
 .steps2 .option1 .option1-span3 {
   width: 73px;
+  border: 2px solid #999;
+  border-bottom: 2px solid black;
 }
 
 .areaDetail_disabled {
@@ -344,22 +351,22 @@ span {
   font-weight: 700;
 }
 
-.steps3 .options li.saturday {
+.steps3 .options li.saturday .day {
   font-size: 16px;
   color: rgb(62, 114, 235);
 }
 
-.steps3 .options li .saturday {
+.steps3 .options li.saturday .date {
   font-size: 16px;
   color: rgb(62, 114, 235);
 }
 
-.steps3 .options li.sunday {
+.steps3 .options li.sunday .day {
   font-size: 16px;
   color: rgb(160, 43, 0);
 }
 
-.steps3 .options li .sunday {
+.steps3 .options li.sunday .date {
   font-size: 16px;
   color: rgb(160, 43, 0);
 }
@@ -376,7 +383,6 @@ span {
 
 .steps4 .option1 .option1-inner {
   width: 302px;
-  border-bottom: 1px solid #999;
 }
 
 .steps4 .option1 span {
@@ -472,4 +478,51 @@ span {
   color: black;
 }
 
+.resBottomBanner {
+  margin-top:40px;
+  height: 200px;
+}
+
+.steps4 .options .option3-inner {
+  width: 302px;
+}
+.steps4 .options .option3-inner .theaterInfo {
+  padding-top: 15px;
+  margin-bottom: 15px;
+  border-top: 2px solid rgb(196, 191, 191);
+}
+.steps4 .options .option3-inner .theaterInfo .theaterInfo-wrap .theaterName {
+  color: rgb(160, 43, 0);
+  font-weight: 900;
+ }
+ .steps4 .options .option3-inner .theaterInfo .theaterInfo-wrap .theaterFloor {
+  font-weight: 900;
+ }
+ .steps4 .options .option3-inner .theaterInfo .theaterInfo-wrap .theaterTotalSeat {
+  color: #555;
+ }
+
+ .steps4 .options .option3-inner .theaterInfo .movieTimeInfo {
+  overflow: hidden;
+  margin-top: 10px;
+ }
+ .steps4 .options .option3-inner .theaterInfo .movieTimeInfo li {
+  display: inline-block;
+  width: 100px;
+ }
+ .steps4 .options .option3-inner .theaterInfo .movieTimeInfo li .movieStartTime {
+  border: 1px solid rgb(200, 200, 200);
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2px 3px;
+ }
+ .steps4 .options .option3-inner .theaterInfo .movieTimeInfo li .seatAvailableNum {
+  color: green;
+ }
+
+.steps4 .options .option3 .theaterInfo span {
+  color: black;
+  display: inline-block;
+  margin-right: 10px;
+}
 

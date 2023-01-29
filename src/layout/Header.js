@@ -59,6 +59,7 @@ const Header = () => {
     //메뉴바 상단 고정 및 고정 버튼 토글
     const fixedBtn = useRef(null);
     const topMenu = useRef(null);
+    const searchBtn = useRef(null);
     var topMenuPosition = 194;
     const [isActive, setActive] = useState(false);
 
@@ -68,9 +69,13 @@ const Header = () => {
         if (window.scrollY > topMenuPosition) {
             setActive(true);
             fixedBtn.current.style.display = "flex";
+            searchBtn.current.src = "/TP4_img/icon_search_white.png";
+
         } else {
             setActive(false);
             fixedBtn.current.style.display = "none";
+            menuTableOuter.current.style.borderBottom = "none";
+            searchBtn.current.src = "/TP4_img/icon_search.png";
         };
     }
 
@@ -88,10 +93,14 @@ const Header = () => {
     //display: flex
     const dropDownMenu = () => {
         menuTable.current.style.display = "flex";
+
+        topMenuPosition = topBannerDiv.current.style.display == "none" ? 114 : 194;
+        menuTableOuter.current.style.borderBottom = "1px solid rgb(190, 190, 190)";
     }
     //display: out
     const delDropDown = () => {
         menuTable.current.style.display = "none";
+        menuTableOuter.current.style.borderBottom = "none";
     }
 
     //메뉴바 드롭다운 상태 해제
@@ -99,8 +108,9 @@ const Header = () => {
         if (menuTable.current.style.display == "flex" && window.pageYOffset >= topMenuPosition) {
             if (e.clientY > 263) {
                 menuTable.current.style.display = "none";
+
             };
-        } else if(menuTable.current.style.display == "flex" && window.pageYOffset < topMenuPosition) {
+        } else if (menuTable.current.style.display == "flex" && window.pageYOffset < topMenuPosition) {
             if (e.nativeEvent.offsetY > 210) {
                 menuTable.current.style.display = "none";
             };
@@ -127,7 +137,7 @@ const Header = () => {
                         <div className="main-header" ref={mainHeader} onMouseOver={delDropDown}>
                             <div className="main-header-contents">
                                 <div className="main-header-inner main-header-inner1">
-                                    <Link to="/" onMouseDown={focusOn3} onMouseUp={focusOut3}><img src="/TP4_img/logoRed.png"/></Link>
+                                    <Link to="/" onMouseDown={focusOn3} onMouseUp={focusOut3}><img src="/TP4_img/logoRed.png" /></Link>
                                     <span>C U L T U R E P L E X</span>
                                 </div>
                                 <ul className="main-header-inner main-header-inner2">
@@ -189,9 +199,9 @@ const Header = () => {
                                         </ul>
                                     </div>
                                     <div className="search_bar in">
-                                        <div className="search_bar_inner1 in">
+                                        <div className={isActive ? "search_bar_inner1 sticky2 in" : "search_bar_inner1 in"}>
                                             <input type="text" placeholder="유령" className="in" />
-                                            <img src="/TP4_img/icon_search.png" style={{ width: '26px', height: '26px' }} className="in" />
+                                            <img src="/TP4_img/icon_search.png" style={{ width: '26px', height: '26px' }} className="in" ref={searchBtn} />
                                         </div>
                                     </div>
                                 </div>

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Fragment, useEffect, useRef, useState } from "react"
-import { Link, NavLink, useParams, useSearchParams } from "react-router-dom";
+import { Calendar } from "react-calendar";
+import { Link, NavLink, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import '../css/Reservation.css';
 
 const Reservation = () => {
@@ -9,18 +10,28 @@ const Reservation = () => {
   let param = useParams();
   let titleData = param.title ? param.title : "none";
   let areaData = param.area ? param.area : "seoul";
-  let areaDetailData = param.areaDetail ? param.areaDetail : "tempAreaDetail";
-  let dateData = param.date ? param.date : "tempDate";
-  let timeData = param.time ? param.time : "tempTime";
+  let areaDetailData = param.areaDetail ? param.areaDetail : "none";
+  let dateData = param.date ? param.date : "none";
+  let timeData = param.time ? param.time : "none";
+
+  let urlData = "/reservation/"+titleData+"/"+areaData+"/"+areaDetailData+"/"+dateData;
 
   const resMovieList = useRef(null);
+  const timeSelectRequest = useRef(null);
+
+  let nav = useNavigate(null);
 
   //지역 데이터
   const [areaDetail, setAreaDetail] = useState('서울');
+  const [areaDetail2, setAreaDetail2] = useState(null);
   const [areaDetailList, setAreaDetailList] = useState([]);
 
   //날짜 데이터
-  const [dateList, setDateList] = useState(null); 
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  //상영 시간 데이터 리스트
+  const [playTimeList, setPlayTimeList] = useState([]);
+  const [activePlayTimeList, setactivePlayTimeList] = useState("");
 
   //상세 지역 선택 시 스타일 적용
   const selectAreaDetail = (e) => {
@@ -37,9 +48,12 @@ const Reservation = () => {
     e.target.parentElement.parentElement.style.backgroundColor = "#333";
     e.target.parentElement.parentElement.style.border = "2px solid #777";
     e.target.style.color = "white";
+
+    setAreaDetail2(e.target.innerHTML);
   }
 
-  const activeList = areaDetailList.map((v, i, arr) =>
+  //상세지역 화면 구성
+  const activeAreaDetailList = areaDetailList.map((v, i, arr) =>
     <div key={v + i}><li><Link to={"/reservation/" + titleData + "/" + areaData + "/" + v}>{v}</Link></li></div>
   );
 
@@ -48,18 +62,16 @@ const Reservation = () => {
   const areaList2 = ["seoul", "gyeonggi", "incheon", "gangwon", "daejeon-choongcheong", "daegu", "busan-ulsan", "gyeongsang", "gwangju-jeonla-jeju"];
 
   //json 데이터 불러오기
-  const [data, setData] = useState();
+  const [data, setData] = useState(null);
 
-  const temp1 = "seoul";
-  const temp2 = "인천";
-
+  //페이지 최초 렌더링 시 실행 및 areaDetail 바뀔 때 마다 실행
   useEffect(() => {
     (async () => {
 
       let url = "https://raw.githubusercontent.com/hormonee/ToyProjectData/master/ReservationData.json";
 
       let jsonData = await axios.get(url);
-      setData(jsonData.data);
+      setData(jsonData.data); //전체 데이터
       setLoading(true);
 
       await axios.get(url)
@@ -129,20 +141,34 @@ const Reservation = () => {
     setAreaDetail(e.target.innerHTML);
   }
 
-  //날짜 불러오기
-
-
-  //날짜 선택 시 스타일 변경
+  //날짜 선택 시 스타일 변경 및 상영 시간 정보 리스트화
   const selectDate = (e) => {
     if (e.target.tagName != "SPAN") return;
+
+    //시간 옵션 선택 요구 문구 삭제
+    timeSelectRequest.current.style.display = "none";
+
+    //날짜 영역 스타일 변경
+    const targetYear = e.target.parentElement.parentElement.previousElementSibling.previousElementSibling.innerHTML;
+    const targetMonth = e.target.parentElement.parentElement.previousElementSibling.innerHTML;
+    const targetDate = e.target.parentElement.children[1].innerHTML;
+    const targetDay = e.target.parentElement.children[0].innerHTML;
 
     const arr = e.target.parentElement.parentElement.parentElement.parentElement.children;
     for (let i = 0; i < arr.length; i++) {
       const arr2 = arr[i].children[2].children;
 
       for (let j = 0; j < arr2.length; j++) {
-        arr2[j].children[0].style.color = "#777";
-        arr2[j].children[1].style.color = "#666";
+        if (arr2[j].children[0].innerHTML == "토") {
+          arr2[j].children[0].style.color = "rgb(62, 114, 235)";
+          arr2[j].children[1].style.color = "rgb(62, 114, 235)";
+        } else if (arr2[j].children[0].innerHTML == "일") {
+          arr2[j].children[0].style.color = "rgb(160, 43, 0)";
+          arr2[j].children[1].style.color = "rgb(160, 43, 0)";
+        } else {
+          arr2[j].children[0].style.color = "#777";
+          arr2[j].children[1].style.color = "#666";
+        }
         arr2[j].style.backgroundColor = "transparent";
         arr2[j].style.border = "none";
       }
@@ -151,7 +177,12 @@ const Reservation = () => {
     e.target.parentElement.children[0].style.color = "white";
     e.target.parentElement.children[1].style.color = "white";
     e.target.parentElement.style.backgroundColor = "#333";
-    e.target.parentElement.style.border = "2px solid #999"
+    e.target.parentElement.style.border = "2px solid #999";
+
+    setSelectedDate({ year: targetYear, month: targetMonth, date: targetDate, day: targetDay });  //날짜 저장
+    setPlayTimeList(data["playTime"][data.title[titleData]][areaData][areaDetailData][targetYear][targetMonth][targetDate]);  //상영 시간 저장
+
+    nav("/reservation/" + titleData + "/" + areaData + "/" + areaDetailData + "/" + targetYear + "-" + targetMonth + "-" + targetDate);
   }
 
 
@@ -186,26 +217,26 @@ const Reservation = () => {
                     </div>
                     <div className="option3">
                       <ul ref={resMovieList} onClick={selectMovie}>
-                        <div><li><img src="/TP4_img/ageALL.svg" /><Link to="/reservation/0"><span>방탄소년단:옛투컴인시네마</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to="/reservation/1"><span>아바타-물의길</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to="/reservation/2"><span>상견니</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to="/reservation/3"><span>더퍼스트슬램덩크</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to="/reservation/4"><span>유령</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to="/reservation/5"><span>메간</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to="/reservation/6"><span>교섭</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageAll.svg" /><Link to="/reservation/7"><span>위너2022콘서트더서클-더무비</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to="/reservation/8"><span>천룡팔부-교봉전</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to="/reservation/9"><span>영웅</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to="/reservation/10"><span>다나카1st내한콘서트-생중계</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to="/reservation/11"><span>오늘밤,세계에서이사랑이사라진...</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageLimit18.svg" /><Link to="/reservation/12"><span>바빌론</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to="/reservation/13"><span>뮤지컬레드북</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to="/reservation/14"><span>라인</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageAll.svg" /><Link to="/reservation/15"><span>엄마의땅-그리샤와숲의주인</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to="/reservation/16"><span>열여덟,어른이되는나이</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageAll.svg" /><Link to="/reservation/17"><span>장화신은고양이-끝내주는모험</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageAll.svg" /><Link to="/reservation/18"><span>코코</span></Link></li></div>
-                        <div><li><img src="/TP4_img/ageAll.svg" /><Link to="/reservation/19"><span>겨울왕국2</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageALL.svg" /><Link to="/reservation/0/seoul"><span>방탄소년단:옛투컴인시네마</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to={"/reservation/1/seoul/"+areaDetailData+"/"+dateData}><span>아바타-물의길</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to={"/reservation/2/seoul/"+areaDetailData+"/"+dateData}><span>상견니</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to={"/reservation/3/seoul/"+areaDetailData+"/"+dateData}><span>더퍼스트슬램덩크</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to={"/reservation/4/seoul/"+areaDetailData+"/"+dateData}><span>유령</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to={"/reservation/5/seoul/"+areaDetailData+"/"+dateData}><span>메간</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to={"/reservation/6/seoul/"+areaDetailData+"/"+dateData}><span>교섭</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageAll.svg" /><Link to={"/reservation/7/seoul/"+areaDetailData+"/"+dateData}><span>위너2022콘서트더서클-더무비</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to={"/reservation/8/seoul/"+areaDetailData+"/"+dateData}><span>천룡팔부-교봉전</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to={"/reservation/9/seoul/"+areaDetailData+"/"+dateData}><span>영웅</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to={"/reservation/10/seoul/"+areaDetailData+"/"+dateData}><span>다나카1st내한콘서트-생중계</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to={"/reservation/11/seoul/"+areaDetailData+"/"+dateData}><span>오늘밤,세계에서이사랑이사라진...</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit18.svg" /><Link to={"/reservation/12/seoul/"+areaDetailData+"/"+dateData}><span>바빌론</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to={"/reservation/13/seoul/"+areaDetailData+"/"+dateData}><span>뮤지컬레드북</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit15.svg" /><Link to={"/reservation/14/seoul/"+areaDetailData+"/"+dateData}><span>라인</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageAll.svg" /><Link to={"/reservation/15/seoul/"+areaDetailData+"/"+dateData}><span>엄마의땅-그리샤와숲의주인</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageLimit12.svg" /><Link to={"/reservation/16/seoul/"+areaDetailData+"/"+dateData}><span>열여덟,어른이되는나이</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageAll.svg" /><Link to={"/reservation/17/seoul/"+areaDetailData+"/"+dateData}><span>장화신은고양이-끝내주는모험</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageAll.svg" /><Link to={"/reservation/18/seoul/"+areaDetailData+"/"+dateData}><span>코코</span></Link></li></div>
+                        <div><li><img src="/TP4_img/ageAll.svg" /><Link to={"/reservation/19/seoul/"+areaDetailData+"/"+dateData}><span>겨울왕국2</span></Link></li></div>
                       </ul>
                     </div>
                   </div>
@@ -245,7 +276,7 @@ const Reservation = () => {
                           <Link to={"/reservation/" + titleData + "/seoul"} onClick={changeAreaDetail} /* style={ ({isActive}) => (isActive ? styleArea : null) } */ >서울</Link>
                           <span>▶︎</span>
                           <ul className="areaDetail_abled" onClick={selectAreaDetail}>
-                            {data && activeList}
+                            {data && activeAreaDetailList}
                           </ul>
                         </li>
                       </ul>
@@ -451,14 +482,41 @@ const Reservation = () => {
                           <span className="night">심야</span>
                         </div>
                       </div>
-                      <div className="option2">
+                      <div className="option2" ref={timeSelectRequest}>
                         <p>영화, 극장, 날짜를 선택해주세요.</p>
+                      </div>
+                      <div className="option3">
+                        <div className="option3-inner">
+                          {/* 데이터를 통한 상영 시간 맵핑 */}
+                          {data &&
+                            playTimeList.map((v, i, arr) =>
+                              <div className="theaterInfo" key={"theaterInfo" + v + i} style={v[1].length == 0 ? {display: "none"} : null}>
+                                <div className="theaterInfo-wrap" key={"theaterInfo-wrap" + v + i} style={v[1].length == 0 ? {display: "none"} : null}>
+                                  <span className="theaterName" key={"theaterName" + v + i}>{v[0][0]}</span>
+                                  <span className="theaterFloor" key={"theaterFloor" + v + i}>{v[0][1]}</span>
+                                  <span className="theaterTotalSeat" key={"theaterTotalSeat" + v + i}>{v[0][2]}</span>
+                                </div>
+                                <ul className="movieTimeInfo" key={"movieTimeInfo" + v + i}>
+                                  {
+                                    v[1].map((v2, i2, arr2) =>
+                                      <li key={"movieTimInfo-li" + v2 + i2} style={v2.length == 0 ? {display: "none"} : null}>
+                                        <Link to="">
+                                          <span className="movieStartTime" key={"movieStartTime" + v2 + i2}>{v2[0]}</span>
+                                          <span className="seatAvailableNum" key={"seatAvailableNum" + v2 + i2}>{v2[1]}{v2[1] == "-" ? null : "석"}</span>
+                                        </Link>
+                                      </li>
+                                    )
+                                  }
+                                </ul>
+                              </div>
+                            )
+                          }
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-
             </div>
 
             <div className="selection-outer">
@@ -473,6 +531,10 @@ const Reservation = () => {
                   <span></span>
                 </div>
               </div>
+            </div>
+
+            <div className="resBottomBanner">
+              <img src="https://adimg.cgv.co.kr/images/202301/Search2/996x140.jpg" />
             </div>
           </section>
 

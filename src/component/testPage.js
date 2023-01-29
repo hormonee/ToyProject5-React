@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Fragment, useEffect, useRef, useState } from "react"
-import { Link, NavLink, useParams, useSearchParams } from "react-router-dom";
+import { Calendar } from "react-calendar";
+import { Link, NavLink, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import '../css/Reservation.css';
 
 const Reservation = () => {
@@ -15,12 +16,15 @@ const Reservation = () => {
 
   const resMovieList = useRef(null);
 
+  let nav = useNavigate();
+
   //지역 데이터
   const [areaDetail, setAreaDetail] = useState('서울');
+  const [areaDetail2, setAreaDetail2] = useState(null);
   const [areaDetailList, setAreaDetailList] = useState([]);
 
   //날짜 데이터
-  const [dateList, setDateList] = useState(null); 
+  const [selectedDate, setSelectedDate] = useState(null);
 
   //상세 지역 선택 시 스타일 적용
   const selectAreaDetail = (e) => {
@@ -37,6 +41,8 @@ const Reservation = () => {
     e.target.parentElement.parentElement.style.backgroundColor = "#333";
     e.target.parentElement.parentElement.style.border = "2px solid #777";
     e.target.style.color = "white";
+
+    setAreaDetail2(e.target.innerHTML);
   }
 
   const activeList = areaDetailList.map((v, i, arr) =>
@@ -136,13 +142,26 @@ const Reservation = () => {
   const selectDate = (e) => {
     if (e.target.tagName != "SPAN") return;
 
+    const targetYear = e.target.parentElement.parentElement.previousElementSibling.previousElementSibling.innerHTML;
+    const targetMonth = e.target.parentElement.parentElement.previousElementSibling.innerHTML;
+    const targetDate = e.target.parentElement.children[1].innerHTML;
+    const targetDay = e.target.parentElement.children[0].innerHTML;
+
     const arr = e.target.parentElement.parentElement.parentElement.parentElement.children;
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < arr.length; i++) {
       const arr2 = arr[i].children[2].children;
 
-      for (let j = 0; j < 2; j++) {
-        arr2[j].children[0].style.color = "#777";
-        arr2[j].children[1].style.color = "#666";
+      for (let j = 0; j < arr2.length; j++) {
+        if (arr2[j].children[0].innerHTML == "토") {
+          arr2[j].children[0].style.color = "rgb(62, 114, 235)";
+          arr2[j].children[1].style.color = "rgb(62, 114, 235)";
+        } else if (arr2[j].children[0].innerHTML == "일") {
+          arr2[j].children[0].style.color = "rgb(160, 43, 0)";
+          arr2[j].children[1].style.color = "rgb(160, 43, 0)";
+        } else {
+          arr2[j].children[0].style.color = "#777";
+          arr2[j].children[1].style.color = "#666";
+        }
         arr2[j].style.backgroundColor = "transparent";
         arr2[j].style.border = "none";
       }
@@ -152,6 +171,10 @@ const Reservation = () => {
     e.target.parentElement.children[1].style.color = "white";
     e.target.parentElement.style.backgroundColor = "#333";
     e.target.parentElement.style.border = "2px solid #999"
+
+    setSelectedDate({ year: targetYear, month: targetMonth, date: targetDate, dat: targetDay });
+
+    nav("/reservation/" + titleData + "/" + areaData + "/" + areaDetailData + "/" + targetYear + "-" + targetMonth + "-" + targetDate);
   }
 
 
@@ -454,6 +477,28 @@ const Reservation = () => {
                       <div className="option2">
                         <p>영화, 극장, 날짜를 선택해주세요.</p>
                       </div>
+                      <div className="option3">
+
+                        <div className="theaterInfo">
+                          <div className="theaterInfo-wrap">
+                            <span className="theaterName"></span>
+                            <span className="theaterFloor"></span>
+                            <span className="theaterTotalSeat"></span>
+                          </div>
+                          <ul className="movieTimeInfo">
+                            <li>
+                              <Link to="">
+                                <span className="movieStartTime"></span>
+                                <span className="seatAvailableNum"></span>
+                                <span className="movieEndTime"></span>
+                              </Link>
+                            </li>
+                            <li></li>
+                            <li></li>
+                          </ul>
+                        </div>
+
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -470,12 +515,17 @@ const Reservation = () => {
                   <span className="payment">결제</span>
                 </div>
                 <div className="selectionRight">
-                  <span></span>
                 </div>
               </div>
             </div>
-          </section>
 
+            <div className="resBottomBanner">
+              <img src="https://adimg.cgv.co.kr/images/202301/Search2/996x140.jpg" />
+            </div>
+          </section>
+          {/* <div>
+            <Calendar locale="en-EN" />
+          </div> */}
         </div>
       </div >
     </Fragment >

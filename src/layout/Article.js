@@ -65,7 +65,7 @@ const Article = () => {
     return (
         <Fragment>
             {/*  <!-- Event --> */}
-            <article>
+            <article className="mainPageEvent">
                 <div className="event_outer">
                     <div className="event">
                         <div className="event_left">
