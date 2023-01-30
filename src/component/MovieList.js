@@ -95,7 +95,7 @@ const MovieList = () => {
                                         </strong>
                                     </span>
                                     <span className="like">
-                                        <Link to="/reservation" className="link-reservation" href="/ticket/?MOVIE_CD=20031534&amp;MOVIE_CD_GROUP=20030160">예매</Link>
+                                        <Link to="/reservation/1/seoul" className="link-reservation" href="/ticket/?MOVIE_CD=20031534&amp;MOVIE_CD_GROUP=20030160">예매</Link>
                                     </span>
                                 </div>
 
@@ -142,7 +142,7 @@ const MovieList = () => {
                                         </strong>
                                     </span>
                                     <span className="like">
-                                        <a className="link-reservation" href="/ticket/?MOVIE_CD=20031703&amp;MOVIE_CD_GROUP=20031703">예매</a>
+                                        <Link to="/reservation/2/seoul" className="link-reservation" href="/ticket/?MOVIE_CD=20031703&amp;MOVIE_CD_GROUP=20031703">예매</Link>
                                     </span>
                                 </div>
                             </li>
@@ -190,7 +190,7 @@ const MovieList = () => {
                                         </strong>
                                     </span>
                                     <span className="like">
-                                        <a className="link-reservation" href="/ticket/?MOVIE_CD=20031676&amp;MOVIE_CD_GROUP=20031612">예매</a>
+                                        <Link to="/reservation/3/seoul" className="link-reservation" href="/ticket/?MOVIE_CD=20031676&amp;MOVIE_CD_GROUP=20031612">예매</Link>
                                     </span>
                                 </div>
                             </li>
@@ -239,7 +239,7 @@ const MovieList = () => {
                                         </strong>
                                     </span>
                                     <span className="like">
-                                        <a className="link-reservation" href="/ticket/?MOVIE_CD=20031631&amp;MOVIE_CD_GROUP=20031631">예매</a>
+                                        <Link to="/reservation/4/seoul" className="link-reservation" href="/ticket/?MOVIE_CD=20031631&amp;MOVIE_CD_GROUP=20031631">예매</Link>
                                     </span>
                                 </div>
                             </li>
@@ -281,7 +281,7 @@ const MovieList = () => {
                                         </strong>
                                     </span>
                                     <span className="like">
-                                        <a className="link-reservation" href="/ticket/?MOVIE_CD=20031704&amp;MOVIE_CD_GROUP=20031704">예매</a>
+                                        <Link to="/reservation/5/seoul" className="link-reservation" href="/ticket/?MOVIE_CD=20031704&amp;MOVIE_CD_GROUP=20031704">예매</Link>
                                     </span>
                                 </div>
                             </li>
@@ -323,7 +323,7 @@ const MovieList = () => {
                                         </strong>
                                     </span>
                                     <span className="like">
-                                        <a className="link-reservation" href="/ticket/?MOVIE_CD=20030337&amp;MOVIE_CD_GROUP=20030337">예매</a>
+                                        <Link to="/reservation/6/seoul" className="link-reservation" href="/ticket/?MOVIE_CD=20030337&amp;MOVIE_CD_GROUP=20030337">예매</Link>
                                     </span>
                                 </div>
                             </li>
@@ -363,7 +363,7 @@ const MovieList = () => {
                                         </strong>
                                     </span>
                                     <span className="like">
-                                        <a className="link-reservation" href="/ticket/?MOVIE_CD=20031711&amp;MOVIE_CD_GROUP=20031711">예매</a>
+                                        <Link to="/reservation/7/seoul" className="link-reservation" href="/ticket/?MOVIE_CD=20031711&amp;MOVIE_CD_GROUP=20031711">예매</Link>
                                     </span>
                                 </div>
                             </li>
@@ -395,6 +395,7 @@ const MovieList = () => {
                 </div>
             </div>
         </div>
+        
     )
     
 

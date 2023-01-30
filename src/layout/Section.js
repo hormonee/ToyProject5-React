@@ -80,8 +80,8 @@ const Section = () => {
                                         </div>
                                     </div>
                                     <div className="hover_cont">
-                                        <a href="#" className="hover_cont_inner1">상세보기</a>
-                                        <a href="#" className="hover_cont_inner2">예매하기</a>
+                                        <Link to="/moviedetail/1" className="hover_cont_inner1">상세보기</Link>
+                                        <Link to="/reservation/1/seoul" className="hover_cont_inner2">예매하기</Link>
                                     </div>
                                 </li>
                                 <li className="movie_list_inner">
@@ -101,7 +101,7 @@ const Section = () => {
                                     </div>
                                     <div className="hover_cont">
                                         <a href="#" className="hover_cont_inner1">상세보기</a>
-                                        <a href="#" className="hover_cont_inner2">예매하기</a>
+                                        <Link to="/reservation/3/seoul" className="hover_cont_inner2">예매하기</Link>
                                     </div>
                                 </li>
                                 <li className="movie_list_inner">
@@ -121,7 +121,7 @@ const Section = () => {
                                     </div>
                                     <div className="hover_cont">
                                         <a href="#" className="hover_cont_inner1">상세보기</a>
-                                        <a href="#" className="hover_cont_inner2">예매하기</a>
+                                        <Link to="/reservation/6/seoul" className="hover_cont_inner2">예매하기</Link>
                                     </div>
                                 </li>
                                 <li className="movie_list_inner">
@@ -142,7 +142,7 @@ const Section = () => {
                                     </div>
                                     <div className="hover_cont">
                                         <a href="#" className="hover_cont_inner1">상세보기</a>
-                                        <a href="#" className="hover_cont_inner2">예매하기</a>
+                                        <Link to="/reservation/4/seoul" className="hover_cont_inner2">예매하기</Link>
                                     </div>
                                 </li>
                                 <li className="movie_list_inner movie_list_inner5">
@@ -165,7 +165,7 @@ const Section = () => {
                                     </div>
                                     <div className="hover_cont">
                                         <a href="#" className="hover_cont_inner1">상세보기</a>
-                                        <a href="#" className="hover_cont_inner2">예매하기</a>
+                                        <Link to="/reservation/9/seoul" className="hover_cont_inner2">예매하기</Link>
                                     </div>
                                 </li>
                             </ul>
@@ -468,7 +468,7 @@ const Section = () => {
                                     </div>
                                     <div className="hover_cont">
                                         <a href="#" className="hover_cont_inner1">상세보기</a>
-                                        <a href="#" className="hover_cont_inner2">예매하기</a>
+                                        <Link to="/reservation/6/seoul" className="hover_cont_inner2">예매하기</Link>
                                     </div>
                                 </li>
                                 <li className="movie_list_inner">
@@ -488,7 +488,7 @@ const Section = () => {
                                     </div>
                                     <div className="hover_cont">
                                         <a href="#" className="hover_cont_inner1">상세보기</a>
-                                        <a href="#" className="hover_cont_inner2">예매하기</a>
+                                        <Link to="/reservation/4/seoul" className="hover_cont_inner2">예매하기</Link>
                                     </div>
                                 </li>
                                 <li className="movie_list_inner">

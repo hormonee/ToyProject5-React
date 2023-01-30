@@ -69,7 +69,7 @@ const MovieDetail = () => {
                                         <i className='preegg-image1'></i>
                                         프리에그
                                     </span>
-                                    <Link to='/reservation' className='reservation1'>예매하기</Link>
+                                    <Link to='/reservation/1/seoul' className='reservation1'>예매하기</Link>
                                 </span>
                             </div>
 
