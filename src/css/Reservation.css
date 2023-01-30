@@ -112,6 +112,7 @@ span {
 
 .steps1 .options-wrap {
   width: 236px;
+  box-sizing: border-box;
 }
 
 .steps1 .options1,
@@ -483,6 +484,15 @@ span {
   height: 200px;
 }
 
+.steps4 {
+  position: relative;
+}
+.steps4 .options .kakaoMap {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
 .steps4 .options .option3-inner {
   width: 302px;
 }
@@ -525,4 +535,7 @@ span {
   display: inline-block;
   margin-right: 10px;
 }
+
+
+
 

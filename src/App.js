@@ -9,6 +9,9 @@ import MovieList from './component/MovieList';
 import MovieDetail from './component/MovieDetail';
 import MovieDetailInfo from './component/MovieDetailInfo';
 import MovieDetailTrailor from './component/MovieDetailTrailor';
+import AddressContext from './component/ContextAPI';
+import { AddressProvider } from './component/ContextAPI';
+import KakaoMap from './component/KakaoMap';
 
 function App() {
 
@@ -27,29 +30,34 @@ function App() {
 
 
   return (
-    <Routes>
-      <Route path='/' element={<Header />}>
-        <Route path='/' element={<Video />}>
-          <Route path='/' element={<Section />}>
-            <Route path='/' element={<Article />} />
+    <Fragment>
+      <AddressProvider>
+        <Routes>
+          <Route path='/' element={<Header />}>
+            <Route path='/' element={<Video />}>
+              <Route path='/' element={<Section />}>
+                <Route path='/' element={<Article />} />
+              </Route>
+            </Route>
+            <Route path='/movielist' element={<MovieList />}>
+
+            </Route>
+            <Route path='/moviedetail' element={<MovieDetail />}>
+              <Route path='/moviedetail/1' element={<MovieDetailInfo />} />
+              <Route path='/moviedetail/2' element={<MovieDetailTrailor />} />
+            </Route>
+
+            <Route path='/reservation' element={<Reservation />} />
+            <Route path='/reservation/:title' element={<Reservation />} />
+            <Route path='/reservation/:title/:area' element={<Reservation />} />
+            <Route path='/reservation/:title/:area/:areaDetail' element={<Reservation />} />
+            <Route path='/reservation/:title/:area/:areaDetail/:date' element={<Reservation />} />
+            <Route path='/reservation/:title/:area/:areaDetail/:date/:time' element={<Reservation />} />
+            
           </Route>
-        </Route>
-        <Route path='/movielist' element={<MovieList />}>
-
-        </Route>
-        <Route path='/moviedetail' element={<MovieDetail />}>
-            <Route path='/moviedetail/1' element={<MovieDetailInfo/>}/>
-            <Route path='/moviedetail/2' element={<MovieDetailTrailor/>}/>
-        </Route>
-
-        <Route path='/reservation' element={<Reservation />} />
-        <Route path='/reservation/:title' element={<Reservation />} />
-        <Route path='/reservation/:title/:area' element={<Reservation />} />
-        <Route path='/reservation/:title/:area/:areaDetail' element={<Reservation />} />
-        <Route path='/reservation/:title/:area/:areaDetail/:date' element={<Reservation />} />
-        <Route path='/reservation/:title/:area/:areaDetail/:date/:time' element={<Reservation />} />
-      </Route>
-    </Routes>
+        </Routes>
+      </AddressProvider>
+    </Fragment>
   );
 }
 export default App;
