@@ -1,7 +1,40 @@
+import { useState } from 'react';
 import '../css/MovieDetailTrailor.css';
 
 
 const MovieDetailTrailor = () => {
+
+    const arr = [
+        { src: '/TP4_img/avatar1.jpg', title: '아바타1', date: '2023.01.06', content: '판도라의 경이로운 대자연 영상' },
+        { src: '/TP4_img/avatar2.jpg', title: '아바타2', date: '2022.12.27', content: '캐릭터 비하인드 영상' },
+        { src: '/TP4_img/avatar3.jpg', title: '아바타3', date: '2022.12.27', content: '프로덕션 비하인드 영상' },
+        { src: '/TP4_img/avatar4.jpg', title: '아바타4', date: '2022.12.20', content: '극찬 리뷰 영상' },
+        { src: '/TP4_img/avatar5.jpg', title: '아바타5', date: '2022.12.13', content: '환상적인 판도라의 세계 영상' },
+        { src: '/TP4_img/avatar6.jpg', title: '아바타6', date: '2022.12.13', content: "'아바타: 물의 길'에 대한 진실 혹은 거짓 영상" },
+        { src: '/TP4_img/avatar7.jpg', title: '아바타7', date: '2022.11.25', content: '파이널 예고편' },
+        { src: '/TP4_img/avatar8.jpg', title: '아바타8', date: '2022.11.09', content: '메인 예고편' },
+        { src: '/TP4_img/avatar9.jpg', title: '아바타9', date: '2022.07.22', content: '티저 예고편' },
+    ]
+
+    const [list, setList] = useState(arr);
+
+    const newList = list.map(item =>
+        <li>
+            <div className='box-image2'>
+                <span className='box-image2-detail'>
+                    <img src={item.src} alt={item.title} />
+                    <span className='play-icon'>영상보기</span>
+                </span>
+            </div>
+            <div className='box-contents'>
+                <strong className='title'>
+                    <span className='hd-icon'>HD</span>
+                    {item.content}
+                </strong>
+                <span className='text-info'>{item.date}</span>
+            </div>
+        </li>
+    )
 
     return (
         <>
@@ -18,146 +51,7 @@ const MovieDetailTrailor = () => {
 
                 {/* 이미지들 */}
                 <ul>
-                    <li>
-                        <div className='box-image2'>
-                            <span className='box-image2-detail'>
-                                <img src="/TP4_img/avatar1.jpg" alt='avatar1' />
-                                <span className='play-icon'>영상보기</span>
-                            </span>
-                        </div>
-                        <div className='box-contents'>
-                            <strong className='title'>
-                                <span className='hd-icon'>HD</span>
-                                판도라의 경이로운 대자연 영상
-                            </strong>
-                            <span className='text-info'>2023.01.06</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div className='box-image2'>
-                            <span className='box-image2-detail'>
-                                <img src="/TP4_img/avatar2.jpg" alt='avatar2' />
-                                <span className='play-icon'>
-                                    영상보기
-                                </span>
-                            </span>
-                        </div>
-                        <div className='box-contents'>
-                            <strong className='title'>
-                                <span className='hd-icon'>HD</span>
-                                캐릭터 비하인드 영상
-                            </strong>
-                            <span className='text-info'>2022.12.27</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div className='box-image2'>
-                            <span className='box-image2-detail'>
-                                <img src='/TP4_img/avatar3.jpg' alt='avatar3' />
-                                <span className='play-icon'>영상보기</span>
-                            </span>
-                        </div>
-                        <div className='box-contents'>
-                            <strong className='title'>
-                                <span className='hd-icon'>HD</span>
-                                프로덕션 비하인드 영상
-                            </strong>
-                            <span className='text-info'>2022.12.27</span>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div className='box-image2'>
-                            <span className='box-image2-detail'>
-                                <img src='/TP4_img/avatar4.jpg' alt='avatar4' />
-                                <span className='play-icon'>영상보기</span>
-                            </span>
-                        </div>
-                        <div className='box-contents'>
-                            <strong className='title'>
-                                <span className='hd-icon'>HD</span>
-                                극찬 리뷰 영상
-                            </strong>
-                            <span className='text-info'>2022.12.20</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div className='box-image2'>
-                            <span className='box-image2-detail'>
-                                <img src='/TP4_img/avatar5.jpg' alt='avatar6' />
-                                <span className='play-icon'>영상보기</span>
-                            </span>
-                        </div>
-                        <div className='box-contents'>
-                            <strong className='title'>
-                                <span className='hd-icon'>HD</span>
-                                환상적인 판도라의 세계 영상
-                            </strong>
-                            <span className='text-info'>2022.12.13</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div className='box-image2'>
-                            <span className='box-image2-detail'>
-                                <img src='/TP4_img/avatar6.jpg' alt='avatar6' />
-                                <span className='play-icon'>영상보기</span>
-                            </span>
-                        </div>
-                        <div className='box-contents'>
-                            <strong className='title'>
-                                <span className='hd-icon'>HD</span>
-
-                                '아바타: 물의 길'에 대한 진실 혹은 거짓 영상
-                            </strong>
-                            <span className='text-info'>2022.12.13</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div className='box-image2'>
-                            <span className='box-image2-detail'>
-                                <img src='/TP4_img/avatar7.jpg' alt='avatar7' />
-                                <span className='play-icon'>영상보기</span>
-                            </span>
-                        </div>
-                        <div className='box-contents'>
-                            <strong className='title'>
-                                <span className='hd-icon'>HD</span>
-                                파이널 예고편
-                            </strong>
-                            <span className='text-info'>2022.11.25</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div className='box-image2'>
-                            <span className='box-image2-detail'>
-                                <img src='/TP4_img/avatar8.jpg' alt='avatar8' />
-                                <span className='play-icon'>영상보기</span>
-                            </span>
-                        </div>
-                        <div className='box-contents'>
-                            <strong className='title'>
-                                <span className='hd-icon'>HD</span>
-                                메인 예고편
-                            </strong>
-                            <span className='text-info'>2022.11.09</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div className='box-image2'>
-                            <span className='box-image2-detail'>
-                                <img src='/TP4_img/avatar9.jpg' alt='avatar9' />
-                                <span className='play-icon'>영상보기</span>
-                            </span>
-                        </div>
-                        <div className='box-contents'>
-                            <strong className='title'>
-                                <span className='hd-icon'>HD</span>
-                                티저 예고편
-                            </strong>
-                            <span className='text-info'>2022.07.22</span>
-                        </div>
-                    </li>
-
+                    {newList}
                 </ul>
             </div>
 
